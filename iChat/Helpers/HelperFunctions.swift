@@ -65,6 +65,41 @@ func imageFromData(pictureData: String, withBlock: (_ image: UIImage?) -> Void) 
     withBlock(image)
 }
 
+func timeElapsed(date: Date) -> String {
+    
+    let seconds = NSDate().timeIntervalSince(date)
+    
+    var elapsed: String?
+    
+    
+    if (seconds < 60) {
+        elapsed = "Just now"
+    } else if (seconds < 60 * 60) {
+        let minutes = Int(seconds / 60)
+        
+        var minText = "min"
+        if minutes > 1 {
+            minText = "mins"
+        }
+        elapsed = "\(minutes) \(minText)"
+        
+    } else if (seconds < 24 * 60 * 60) {
+        let hours = Int(seconds / (60 * 60))
+        var hourText = "hour"
+        if hours > 1 {
+            hourText = "hours"
+        }
+        elapsed = "\(hours) \(hourText)"
+    } else {
+        let currentDateFormater = dateFormatter()
+        currentDateFormater.dateFormat = "dd/MM/YYYY"
+        
+        elapsed = "\(currentDateFormater.string(from: date))"
+    }
+    
+    return elapsed!
+}
+
 //MARK: UIImageExtension
 
 extension UIImage {

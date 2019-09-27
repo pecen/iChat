@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import ProgressHUD
 
-class UsersTableViewController: UITableViewController, UISearchResultsUpdating {
+class UsersTableViewController: UITableViewController, UISearchResultsUpdating, UserTableViewCellDelegate {
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var filterSegmentedControl: UISegmentedControl!
     
@@ -83,6 +83,8 @@ class UsersTableViewController: UITableViewController, UISearchResultsUpdating {
         //cell.generateCellWith(fUser: allUsers[indexPath.row], indexPath: indexPath)
         cell.generateCellWith(fUser: user, indexPath: indexPath)
         
+        cell.delegate = self
+        
         return cell
     }
     
@@ -108,6 +110,24 @@ class UsersTableViewController: UITableViewController, UISearchResultsUpdating {
     
     override func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
         return index
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        var user: FUser
+        
+        if searchController.isActive && searchController.searchBar.text != "" {
+            user = filteredUsers[indexPath.row]
+        }
+        else {
+            let sectionTitle = self.sectionTitleList[indexPath.section]
+            let users = self.allUsersGrouped[sectionTitle]
+            
+            user = users![indexPath.row]
+        }
+
+        startPrivateChat(user1: FUser.currentUser()!, user2: user)
     }
     
     func loadUsers(filter: String) {
@@ -211,5 +231,28 @@ class UsersTableViewController: UITableViewController, UISearchResultsUpdating {
             self.allUsersGrouped[firstCharString]?.append(currentUser)
         }
     }
+    
+    // MARK: - UserTableViewCellDelegate
 
+    func didTapAvatarImage(indexPath: IndexPath) {
+        let profileVC = UIStoryboard.init(name: "Main", bundle: nil)
+        .instantiateViewController(withIdentifier: "profileView") as! ProfileViewTableViewController
+        
+        var user: FUser
+        
+        if searchController.isActive && searchController.searchBar.text != "" {
+            user = filteredUsers[indexPath.row]
+        }
+        else {
+            let sectionTitle = self.sectionTitleList[indexPath.section]
+            let users = self.allUsersGrouped[sectionTitle]
+            
+            user = users![indexPath.row]
+        }
+        
+        profileVC.user = user
+        self.navigationController?.pushViewController(profileVC, animated: true)
+    }
+    
 }
+
