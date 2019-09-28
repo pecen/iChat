@@ -1,0 +1,10 @@
+.DS_Store
+
+# Exclude project file since it's a workspace now (CocoaPods)
+*.xcodeproj
+
+# CocoaPods
+Pods/
+
+## Obj-C/Swift specific
+*.hmap
