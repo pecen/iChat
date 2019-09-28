@@ -198,6 +198,7 @@ class UsersTableViewController: UITableViewController, UISearchResultsUpdating, 
     }
     
     //MARK: Search controller functions
+    
     func updateSearchResults(for searchController: UISearchController) {
         filterContentForSearchText(searchText: searchController.searchBar.text!)
     }

@@ -100,6 +100,41 @@ func timeElapsed(date: Date) -> String {
     return elapsed!
 }
 
+//for calls and chats
+func dictionaryFromSnapshots(snapshots: [DocumentSnapshot]) -> [NSDictionary] {
+    
+    var allMessages: [NSDictionary] = []
+    for snapshot in snapshots {
+        allMessages.append(snapshot.data()! as NSDictionary)
+    }
+    return allMessages
+}
+
+func formatCallTime(date: Date) -> String {
+    
+    let seconds = NSDate().timeIntervalSince(date)
+    
+    var elapsed: String?
+    
+    
+    if (seconds < 60) {
+        elapsed = "Just now"
+    }  else if (seconds < 24 * 60 * 60) {
+        
+        let currentDateFormater = dateFormatter()
+        currentDateFormater.dateFormat = "HH:mm"
+        
+        elapsed = "\(currentDateFormater.string(from: date))"
+    } else {
+        let currentDateFormater = dateFormatter()
+        currentDateFormater.dateFormat = "dd/MM/YYYY"
+        
+        elapsed = "\(currentDateFormater.string(from: date))"
+    }
+    
+    return elapsed!
+}
+
 //MARK: UIImageExtension
 
 extension UIImage {

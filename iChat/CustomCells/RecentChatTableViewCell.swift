@@ -44,10 +44,9 @@ class RecentChatTableViewCell: UITableViewCell {
     
     func generateCell(recentChat: NSDictionary, indexPath: IndexPath) {
         self.indexPath = indexPath
-        self.nameLabel.text = recentChat[kWITHUSERUSERNAME] as? String
+        self.nameLabel.text = recentChat[kWITHUSERFULLNAME] as? String
         self.lastMsgLabel.text = recentChat[kLASTMESSAGE] as? String
-        // kolla nedanstående rad vid exekvering eftersom jag gjorde lite annorlunda
-        self.msgCounterLabel.text = ""
+        self.msgCounterLabel.text = recentChat[kCOUNTER] as? String
         
         if let avatarString = recentChat[kAVATAR] {
             imageFromData(pictureData: avatarString as! String) { (avatarImage) in
@@ -58,8 +57,7 @@ class RecentChatTableViewCell: UITableViewCell {
         }
         
         if recentChat[kCOUNTER] as! Int != 0 {
-            // kolla nedanstående rad vid exekvering eftersom jag gjorde lite annorlunda
-            self.msgCounterLabel.text = recentChat[kCOUNTER] as? String
+            self.msgCounterLabel.text = "\(recentChat[kCOUNTER] as! Int)"
             self.msgCounterBackground.isHidden = false
             self.msgCounterLabel.isHidden = false
         }
