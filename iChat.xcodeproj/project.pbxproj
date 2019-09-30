@@ -22,6 +22,9 @@
 		D06412772332A5C000985C84 /* CollectionReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06412762332A5C000985C84 /* CollectionReference.swift */; };
 		D06412792332A68900985C84 /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06412782332A68900985C84 /* HelperFunctions.swift */; };
 		D064127B2333E79D00985C84 /* FinishRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D064127A2333E79D00985C84 /* FinishRegistrationViewController.swift */; };
+		D08389A42341020A00D36072 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08389A32341020A00D36072 /* ChatViewController.swift */; };
+		D08389A62342257500D36072 /* OutgoingMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08389A52342257500D36072 /* OutgoingMessages.swift */; };
+		D08389A8234238E000D36072 /* IncomingMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08389A7234238E000D36072 /* IncomingMessages.swift */; };
 		D0F4994723392A22006E15A9 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F4994623392A22006E15A9 /* SettingsTableViewController.swift */; };
 		D0F49949233A2562006E15A9 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F49948233A2562006E15A9 /* UserTableViewCell.swift */; };
 		D0F4994C233A2BD8006E15A9 /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F4994B233A2BD8006E15A9 /* UsersTableViewController.swift */; };
@@ -47,6 +50,9 @@
 		D06412762332A5C000985C84 /* CollectionReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionReference.swift; sourceTree = "<group>"; };
 		D06412782332A68900985C84 /* HelperFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperFunctions.swift; sourceTree = "<group>"; };
 		D064127A2333E79D00985C84 /* FinishRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishRegistrationViewController.swift; sourceTree = "<group>"; };
+		D08389A32341020A00D36072 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		D08389A52342257500D36072 /* OutgoingMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutgoingMessages.swift; sourceTree = "<group>"; };
+		D08389A7234238E000D36072 /* IncomingMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomingMessages.swift; sourceTree = "<group>"; };
 		D0F4994623392A22006E15A9 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		D0F49948233A2562006E15A9 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		D0F4994B233A2BD8006E15A9 /* UsersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +112,7 @@
 			children = (
 				D0F4994B233A2BD8006E15A9 /* UsersTableViewController.swift */,
 				D02DE0F9233D1A7A005F9113 /* ProfileViewTableViewController.swift */,
+				D08389A32341020A00D36072 /* ChatViewController.swift */,
 			);
 			path = SecondaryViews;
 			sourceTree = "<group>";
@@ -162,6 +169,8 @@
 			children = (
 				D0641272233299D100985C84 /* FUser.swift */,
 				D034C578233D2AD900C1CEB5 /* Recent.swift */,
+				D08389A52342257500D36072 /* OutgoingMessages.swift */,
+				D08389A7234238E000D36072 /* IncomingMessages.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -295,7 +304,9 @@
 				D034C579233D2AD900C1CEB5 /* Recent.swift in Sources */,
 				D0F49949233A2562006E15A9 /* UserTableViewCell.swift in Sources */,
 				D02DE0FA233D1A7A005F9113 /* ProfileViewTableViewController.swift in Sources */,
+				D08389A8234238E000D36072 /* IncomingMessages.swift in Sources */,
 				D034C57B233E345600C1CEB5 /* RecentChatTableViewCell.swift in Sources */,
+				D08389A62342257500D36072 /* OutgoingMessages.swift in Sources */,
 				D064125D2332788F00985C84 /* AppDelegate.swift in Sources */,
 				D064126F23328B8A00985C84 /* WelcomeViewController.swift in Sources */,
 				D06412772332A5C000985C84 /* CollectionReference.swift in Sources */,
@@ -304,6 +315,7 @@
 				D064127523329AAF00985C84 /* Constants.swift in Sources */,
 				D064127B2333E79D00985C84 /* FinishRegistrationViewController.swift in Sources */,
 				D0F4994C233A2BD8006E15A9 /* UsersTableViewController.swift in Sources */,
+				D08389A42341020A00D36072 /* ChatViewController.swift in Sources */,
 				D06412792332A68900985C84 /* HelperFunctions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -138,7 +138,14 @@ class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         // restart chat functionality
         restartRecentChat(recent: recent)
         
-        // show chat view functionality
+        let chatVC = ChatViewController()
+        chatVC.hidesBottomBarWhenPushed = true
+        chatVC.memberIds = (recent[kMEMBERS] as? [String])!
+        chatVC.membersToPush = (recent[kMEMBERSTOPUSH] as? [String])!
+        chatVC.chatRoomId = (recent[kCHATROOMID] as? String)!
+        chatVC.titleName = (recent[kWITHUSERFULLNAME] as? String)!
+        
+        navigationController?.pushViewController(chatVC, animated: true)
     }
     
     // MARK: - LoadRecentChats

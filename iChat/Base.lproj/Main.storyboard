@@ -309,7 +309,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstItem="oVe-FC-Qnj" firstAttribute="centerX" secondItem="Xqa-Xs-mnV" secondAttribute="centerX" id="7e2-WW-5hi"/>
                                                         <constraint firstAttribute="width" constant="30" id="P3K-Ql-gvq"/>
@@ -457,6 +457,21 @@
             </objects>
             <point key="canvasLocation" x="3556" y="527.58620689655174"/>
         </scene>
+        <!--Messages View Controller-->
+        <scene sceneID="gln-4i-wGK">
+            <objects>
+                <viewController id="aIE-Bf-3Te" customClass="JSQMessagesViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YJk-K5-0Qh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="LuH-Sp-bCG"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="36W-Nb-fnF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5014" y="-193"/>
+        </scene>
         <!--Users Table View Controller-->
         <scene sceneID="XUM-G2-xyI">
             <objects>
@@ -539,7 +554,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Stu-6g-bSy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5833" y="-195"/>
+            <point key="canvasLocation" x="5825" y="-194"/>
         </scene>
         <!--Profile View Table View Controller-->
         <scene sceneID="IbU-fr-eI5">
@@ -611,14 +626,14 @@
                                                     </constraints>
                                                 </view>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TLq-Ge-gqw" userLabel="Call Button">
-                                                    <rect key="frame" x="16" y="2.5" width="149" height="60"/>
+                                                    <rect key="frame" x="16" y="17.5" width="149" height="30"/>
                                                     <state key="normal" image="call"/>
                                                     <connections>
                                                         <action selector="callButtonPressed:" destination="B6Q-LJ-w69" eventType="touchUpInside" id="3xz-hf-ogi"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6M1-EF-u3E" userLabel="Msg Button">
-                                                    <rect key="frame" x="210" y="2.5" width="149" height="60"/>
+                                                    <rect key="frame" x="210" y="17.5" width="149" height="30"/>
                                                     <state key="normal" image="message"/>
                                                     <connections>
                                                         <action selector="chatButtonPressed:" destination="B6Q-LJ-w69" eventType="touchUpInside" id="a0L-g7-Xcw"/>
@@ -653,7 +668,7 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <state key="normal" title="Block User">
-                                                        <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                     <connections>
                                                         <action selector="blockUserButtonPressed:" destination="B6Q-LJ-w69" eventType="touchUpInside" id="1WY-TJ-LaO"/>
@@ -681,7 +696,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UIj-Gb-sCl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6600.8000000000002" y="-194.75262368815595"/>
+            <point key="canvasLocation" x="6599" y="-194"/>
         </scene>
         <!--Settings-->
         <scene sceneID="QJ0-SW-rG4">

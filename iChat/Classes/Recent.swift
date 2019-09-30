@@ -86,7 +86,7 @@ func createRecentItem(userId: String, chatRoomId: String, members: [String], wit
         // group
         
         if avatarOfGroup != nil {
-            recent = [kRECENTID : recentId, kUSERID : userId, kCHATROOMID : chatRoomId, kMEMBERS : members, kMEMBERSTOPUSH : members, kWITHUSERUSERNAME : withUserUserName, kLASTMESSAGE : "", kCOUNTER : 0, kDATE : date, kTYPE : type, kAVATAR : avatarOfGroup!] as [String : Any]
+            recent = [kRECENTID : recentId, kUSERID : userId, kCHATROOMID : chatRoomId, kMEMBERS : members, kMEMBERSTOPUSH : members, kWITHUSERFULLNAME : withUserUserName, kLASTMESSAGE : "", kCOUNTER : 0, kDATE : date, kTYPE : type, kAVATAR : avatarOfGroup!] as [String : Any]
         }
     }
     
@@ -97,8 +97,9 @@ func createRecentItem(userId: String, chatRoomId: String, members: [String], wit
 // Restart Chat functionality
 
 func restartRecentChat(recent: NSDictionary) {
-    if recent[kTYPE] as? String == kPRIVATE {
-        createRecent(members: recent[kMEMBERSTOPUSH] as! [String], chatRoomId: recent[kCHATROOMID] as! String, withUserUserName: recent[kWITHUSERUSERNAME] as! String, type: kPRIVATE, users: [FUser.currentUser()!], avatarOfGroup: nil)
+    if recent[kTYPE] as! String == kPRIVATE {
+        print(recent)
+        createRecent(members: recent[kMEMBERSTOPUSH] as! [String], chatRoomId: recent[kCHATROOMID] as! String, withUserUserName: FUser.currentUser()!.firstname, type: kPRIVATE, users: [FUser.currentUser()!], avatarOfGroup: nil)
     }
     
     if recent[kTYPE] as! String == kGROUP {
