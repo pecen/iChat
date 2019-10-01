@@ -21,6 +21,8 @@ func dateFormatter() -> DateFormatter {
     
     dateFormatter.dateFormat = dateFormat
     
+    dateFormatter.isLenient = true
+    
     return dateFormatter
 }
 
