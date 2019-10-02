@@ -15,7 +15,7 @@ import AVFoundation
 import AVKit
 import FirebaseFirestore
 
-class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, IQAudioRecorderViewControllerDelegate {
     var outgoingBubble = JSQMessagesBubbleImageFactory()?.outgoingMessagesBubbleImage(with: UIColor.jsq_messageBubbleBlue())
     var incomingBubble = JSQMessagesBubbleImageFactory()?.incomingMessagesBubbleImage(with: UIColor.jsq_messageBubbleLightGray())
     
@@ -268,7 +268,9 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
             updateSendButton(isSend: false)
         }
         else {
-            print("audio message")
+            let audioVC = AudioViewController(_delegate: self)
+            
+            audioVC.presentAudioRecorder(target: self)
         }
     }
     
@@ -354,6 +356,25 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
                     let text = "[\(kVIDEO)]"
                     
                     outgoingMessage = OutgoingMessage(message: text, videoLink: videoLink!, thumbNail: dataThumbnail! as NSData, senderId: currentUser.objectId, senderName: currentUser.firstname, date: date, status: kDELIVERED, type: kVIDEO)
+                    
+                    JSQSystemSoundPlayer.jsq_playMessageSentSound()
+                    
+                    self.finishSendingMessage()
+                    outgoingMessage?.sendMsg(chatRoomId: self.chatRoomId, messageDict: outgoingMessage!.msgDictionary, memberIds: self.memberIds, membersToPush: self.membersToPush)
+                }
+            }
+            
+            return
+        }
+        
+        // send audio
+        
+        if let audioPath = audio {
+            uploadAudio(audioPath: audioPath, chatRoomId: chatRoomId, view: (self.navigationController?.view)!) { (audioLink) in
+                if audioLink != nil {
+                    let text = "[\(kAUDIO)]"
+                    
+                    outgoingMessage = OutgoingMessage(message: text, audio: audioLink!, senderId: currentUser.objectId, senderName: currentUser.firstname, date: date, status: kDELIVERED, type: kAUDIO)
                     
                     JSQSystemSoundPlayer.jsq_playMessageSentSound()
                     
@@ -565,6 +586,20 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
             self.inputToolbar.contentView.rightBarButtonItem.setImage(UIImage(named: "mic"), for: .normal)
         }
     }
+    
+    // MARK: - IQAudioDelegate
+    
+    func audioRecorderController(_ controller: IQAudioRecorderViewController, didFinishWithAudioAtPath filePath: String) {
+        controller.dismiss(animated: true , completion: nil)
+        self.sendMessage(text: nil, date: Date(), picture: nil, location: nil, video: nil, audio: filePath)
+        
+    }
+    
+    func audioRecorderControllerDidCancel(_ controller: IQAudioRecorderViewController) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
+
     
     // MARK: - UpdateUI
     

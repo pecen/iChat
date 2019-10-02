@@ -54,9 +54,7 @@ func uploadImage(image: UIImage, chatRoomId: String, view: UIView, completion: @
 
 func downloadImage(imageUrl: String, completion: @escaping(_ image: UIImage?) -> Void) {
     let imageURL = NSURL(string: imageUrl)
-    print(imageUrl)
     let imageFileName = (imageUrl.components(separatedBy: "%").last!).components(separatedBy: "?").first!
-    print("file name: \(imageFileName)")
     
     if fileExistsAtPath(path: imageFileName) {
         // exists
@@ -205,6 +203,41 @@ func uploadAudio(audioPath: String, chatRoomId: String, view: UIView, completion
     
     task.observe(StorageTaskStatus.progress) { (snapshot) in
         progressHUD.progress = Float((snapshot.progress?.completedUnitCount)!) / Float((snapshot.progress?.totalUnitCount)!)
+    }
+}
+
+func downloadAudio(audioUrl: String, completion: @escaping(_ audioFileName: String) -> Void) {
+    let audioURL = NSURL(string: audioUrl)
+    let audioFileName = (audioUrl.components(separatedBy: "%").last!).components(separatedBy: "?").first!
+    
+    if fileExistsAtPath(path: audioFileName) {
+        // exist
+        completion(audioFileName)
+    }
+    else {
+        // doesn't exist
+        let downloadQueue = DispatchQueue(label: "audioDownloadQueue")
+        
+        downloadQueue.async {
+            let data = NSData(contentsOf: audioURL! as URL)
+            
+            if data != nil {
+                var docURL = getDocumentsURL()
+                
+                docURL = docURL.appendingPathComponent(audioFileName, isDirectory: false)
+                
+                data!.write(to: docURL, atomically: true)
+                
+                DispatchQueue.main.async {
+                    completion(audioFileName)
+                }
+            }
+            else {
+                DispatchQueue.main.async {
+                    print("no audio in database")
+                }
+            }
+        }
     }
 }
 

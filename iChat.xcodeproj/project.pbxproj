@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		C130173EB30D501D39BCB63D /* Pods_iChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4795C66032AF10653BDC9019 /* Pods_iChat.framework */; };
 		D00469C92344E1FD00EDE1BA /* VideoMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00469C82344E1FD00EDE1BA /* VideoMessage.swift */; };
+		D00469CB2344ED6D00EDE1BA /* AudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00469CA2344ED6D00EDE1BA /* AudioViewController.swift */; };
 		D02DE0FA233D1A7A005F9113 /* ProfileViewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02DE0F9233D1A7A005F9113 /* ProfileViewTableViewController.swift */; };
 		D034C579233D2AD900C1CEB5 /* Recent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D034C578233D2AD900C1CEB5 /* Recent.swift */; };
 		D034C57B233E345600C1CEB5 /* RecentChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D034C57A233E345600C1CEB5 /* RecentChatTableViewCell.swift */; };
@@ -39,6 +40,7 @@
 		4795C66032AF10653BDC9019 /* Pods_iChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		897E7FF311F780FF7F94BF22 /* Pods-iChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iChat.release.xcconfig"; path = "Target Support Files/Pods-iChat/Pods-iChat.release.xcconfig"; sourceTree = "<group>"; };
 		D00469C82344E1FD00EDE1BA /* VideoMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoMessage.swift; sourceTree = "<group>"; };
+		D00469CA2344ED6D00EDE1BA /* AudioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioViewController.swift; sourceTree = "<group>"; };
 		D02DE0F9233D1A7A005F9113 /* ProfileViewTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewTableViewController.swift; sourceTree = "<group>"; };
 		D034C578233D2AD900C1CEB5 /* Recent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recent.swift; sourceTree = "<group>"; };
 		D034C57A233E345600C1CEB5 /* RecentChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentChatTableViewCell.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 				D08389A923427B7300D36072 /* Camera.swift */,
 				D0EF23F22343AFD500D20F4C /* PhotoMediaItem.swift */,
 				D00469C82344E1FD00EDE1BA /* VideoMessage.swift */,
+				D00469CA2344ED6D00EDE1BA /* AudioViewController.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 				D064127523329AAF00985C84 /* Constants.swift in Sources */,
 				D064127B2333E79D00985C84 /* FinishRegistrationViewController.swift in Sources */,
 				D0F4994C233A2BD8006E15A9 /* UsersTableViewController.swift in Sources */,
+				D00469CB2344ED6D00EDE1BA /* AudioViewController.swift in Sources */,
 				D08389A42341020A00D36072 /* ChatViewController.swift in Sources */,
 				D06412792332A68900985C84 /* HelperFunctions.swift in Sources */,
 			);
