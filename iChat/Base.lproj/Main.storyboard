@@ -309,7 +309,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstItem="oVe-FC-Qnj" firstAttribute="centerX" secondItem="Xqa-Xs-mnV" secondAttribute="centerX" id="7e2-WW-5hi"/>
                                                         <constraint firstAttribute="width" constant="30" id="P3K-Ql-gvq"/>
@@ -668,7 +668,7 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <state key="normal" title="Block User">
-                                                        <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                     <connections>
                                                         <action selector="blockUserButtonPressed:" destination="B6Q-LJ-w69" eventType="touchUpInside" id="1WY-TJ-LaO"/>
@@ -697,6 +697,35 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UIj-Gb-sCl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6599" y="-194"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="QQ0-rX-pYF">
+            <objects>
+                <viewController storyboardIdentifier="MapViewController" id="zgj-T9-53u" customClass="MapViewController" customModule="iChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ehu-8l-MSX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="tf8-Zj-J3Z">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="tf8-Zj-J3Z" firstAttribute="bottom" secondItem="Y44-3N-Iwx" secondAttribute="bottom" id="Shi-rJ-Ut4"/>
+                            <constraint firstItem="tf8-Zj-J3Z" firstAttribute="leading" secondItem="Y44-3N-Iwx" secondAttribute="leading" id="dow-go-YVM"/>
+                            <constraint firstItem="tf8-Zj-J3Z" firstAttribute="trailing" secondItem="Y44-3N-Iwx" secondAttribute="trailing" id="mLs-05-YC0"/>
+                            <constraint firstItem="tf8-Zj-J3Z" firstAttribute="top" secondItem="Y44-3N-Iwx" secondAttribute="top" id="njI-Pe-eAv"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Y44-3N-Iwx"/>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="tf8-Zj-J3Z" id="jvw-qH-1LE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pOH-AV-lhl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7381.6000000000004" y="-195.6521739130435"/>
         </scene>
         <!--Settings-->
         <scene sceneID="QJ0-SW-rG4">

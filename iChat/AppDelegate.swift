@@ -8,12 +8,16 @@
 
 import UIKit
 import Firebase
+import CoreLocation
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate {
 
     var window: UIWindow?
     var authListener: AuthStateDidChangeListenerHandle?
+    
+    var locationManager: CLLocationManager?
+    var coordinates: CLLocationCoordinate2D?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
@@ -44,6 +48,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        
+        locationManagerStop()
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -52,6 +58,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        locationManagerStart()
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
@@ -60,6 +67,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     
     //MARK: GoToApp
+        
     func goToApp() {
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: USER_DID_LOGIN_NOTIFICATION), object: nil, userInfo: [kUSERID : FUser.currentId()])
         
@@ -70,6 +78,51 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController = mainView
     }
 
+    // MARK: - Location manager
+    
+    func locationManagerStart() {
+        if locationManager == nil {
+            locationManager = CLLocationManager()
+            locationManager!.delegate = self
+            locationManager!.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager!.requestWhenInUseAuthorization()
+        }
+        
+        locationManager!.startUpdatingLocation()
+    }
+    
+    func locationManagerStop() {
+        if locationManager != nil {
+            locationManager!.stopUpdatingLocation()
+        }
+    }
+    
+    // MARK: - Location Manger delegates
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("failed to get location")
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        switch status {
+        case .notDetermined:
+            manager.requestWhenInUseAuthorization()
+        case .authorizedWhenInUse:
+            manager.startUpdatingLocation()
+        case .authorizedAlways:
+            manager.startUpdatingLocation()
+        case .restricted:
+            print("restricted")
+        case .denied:
+            locationManager = nil
+            print("denied location access by user")
+            break
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        coordinates = locations.last!.coordinate
+    }
 
 }
 

@@ -38,7 +38,7 @@ class IncomingMessage {
             msg = createAudioMessage(messageDictionary: messageDictionary)
         case kLOCATION:
             // create location msg
-            print("create location message")
+            msg = createLocationMessage(messageDictionary: messageDictionary)
         default:
             print("Unknown message type")
         }
@@ -151,7 +151,7 @@ class IncomingMessage {
     func createAudioMessage(messageDictionary: NSDictionary) -> JSQMessage {
         let name = messageDictionary[kSENDERNAME] as? String
         let userId = messageDictionary[kSENDERID] as? String
-        let date: Date!
+        var date: Date!
         
         if let created = messageDictionary[kDATE] {
             if (created as! String).count != 14 {
@@ -169,7 +169,7 @@ class IncomingMessage {
         
         audioItem.appliesMediaViewMaskAsOutgoing = returnOutgoingStatusForUser(senderId: userId!)
         
-        let audioMsg = JSQMessage(senderId: userId!, displayName: name!, media: audioItem)
+        let audioMsg = JSQMessage(senderId: userId!, senderDisplayName: name!, date: date, media: audioItem)
         
         // download audio
 
@@ -183,6 +183,39 @@ class IncomingMessage {
         }
         
         return audioMsg!
+    }
+
+    func createLocationMessage(messageDictionary: NSDictionary) -> JSQMessage {
+        let name = messageDictionary[kSENDERNAME] as? String
+        let userId = messageDictionary[kSENDERID] as? String
+        
+        var date: Date!
+        
+        if let created = messageDictionary[kDATE] {
+            if (created as! String).count != 14 {
+                date = Date()
+            }
+            else {
+                date = dateFormatter().date(from: created as! String)
+            }
+        }
+        else {
+            date = Date()
+        }
+        
+        let latitude = messageDictionary[kLATITUDE] as? Double
+        let longitude = messageDictionary[kLONGITUDE] as? Double
+        let mediaItem = JSQLocationMediaItem(location: nil)
+        
+        mediaItem?.appliesMediaViewMaskAsOutgoing = returnOutgoingStatusForUser(senderId: userId!)
+        
+        let location = CLLocation(latitude: latitude!, longitude: longitude!)
+        
+        mediaItem?.setLocation(location, withCompletionHandler: {
+            self.collectionView.reloadData()
+        })
+        
+        return JSQMessage(senderId: userId!, senderDisplayName: name, date: date, media: mediaItem)
     }
 
     // MARK: - Helper functions
