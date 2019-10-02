@@ -44,6 +44,8 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
     var loadOld = false
     var loadedMsgsCount = 0
     
+    var typingCounter = 0
+    
     // MARK: - CustomHeaders
     
     let leftBarButtonView: UIView = {
@@ -86,6 +88,8 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        createTypingObserver()
         
         navigationItem.largeTitleDisplayMode = .never
         
@@ -414,6 +418,20 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
     // MARK: - LoadMessages
     
     func loadMessages() {
+        // to update message status
+        updatedChatListener = reference(.Message).document(FUser.currentId()).collection(chatRoomId).addSnapshotListener({ (snapshot, error) in
+            guard let snapshot = snapshot else { return }
+            
+            if !snapshot.isEmpty {
+                snapshot.documentChanges.forEach { (diff) in
+                    if diff.type == .modified {
+                        // update local message
+                        self.updateMessage(msgDict: diff.document.data() as NSDictionary)
+                    }
+                }
+            }
+        })
+        
         // get last 11 messages
         reference(.Message).document(FUser.currentId()).collection(chatRoomId).order(by: kDATE, descending: true).limit(to: 11).getDocuments { (snapshot, error) in
             guard let snapshot = snapshot else {
@@ -523,6 +541,7 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         
         if (messageDictionary[kSENDERID] as! String) != FUser.currentId() {
             // update message status
+            OutgoingMessage.updateMessage(withId: messageDictionary[kMESSAGEID] as! String, chatRoomId: chatRoomId, memberIds: memberIds)
         }
         
         let msg = incomingMsg.createMessage(messageDictionary: messageDictionary, chatRoomId: chatRoomId)
@@ -533,6 +552,18 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         }
         
         return isIncoming(messageDictionary: messageDictionary)
+    }
+    
+    func updateMessage(msgDict: NSDictionary) {
+        for index in 0 ..< objMessages.count {
+            let tmp = objMessages[index]
+            
+            if msgDict[kMESSAGEID] as! String == tmp[kMESSAGEID] as! String {
+                objMessages[index] = msgDict
+                
+                self.collectionView!.reloadData()
+            }
+        }
     }
     
     // MARK: - LoadMoreMessages
@@ -568,6 +599,7 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
     // MARK: - IBActions
     
     @objc func backAction() {
+        removeListeners()
         self.navigationController?.popViewController(animated: true)
     }
     
@@ -584,6 +616,57 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         
         profileVC.user = withUsers.first!
         self.navigationController?.pushViewController(profileVC, animated: true)
+    }
+    
+    // MARK: - Typing Indicator
+    
+    func createTypingObserver() {
+        typingListener = reference(.Typing).document(chatRoomId).addSnapshotListener({ (snapshot, error) in
+            guard let snapshot = snapshot else { return }
+            
+            if snapshot.exists {
+                for data in snapshot.data()! {
+                    if data.key != FUser.currentId() {
+                        let typing = data.value as! Bool
+                        self.showTypingIndicator = typing
+                        
+                        if typing {
+                            self.scrollToBottom(animated: true)
+                        }
+                    }
+                }
+            }
+            else {
+                reference(.Typing).document(self.chatRoomId).setData([FUser.currentId() : false])
+            }
+        })
+    }
+    
+    func typingCounterStart() {
+        typingCounter += 1
+        
+        typingCounterSave(typing: true)
+        
+        self.perform(#selector(self.typingCounterStop), with: nil, afterDelay: 3.0)
+    }
+    
+    @objc func typingCounterStop() {
+        typingCounter -= 1
+        
+        if typingCounter == 0 {
+            typingCounterSave(typing: false)
+        }
+    }
+    
+    func typingCounterSave(typing: Bool) {
+        reference(.Typing).document(chatRoomId).updateData([FUser.currentId() : typing])
+    }
+    
+    // MARK: - UITextViewDelegate
+    
+    override func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        typingCounterStart()
+        return true
     }
     
     // MARK: - CustomSendButton
@@ -734,5 +817,19 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         currentDateFormat.dateFormat = "HH:mm"
         
         return currentDateFormat.string(from: date!)
+    }
+    
+    func removeListeners() {
+        if typingListener != nil {
+            typingListener!.remove()
+        }
+        
+        if newChatListener != nil {
+            newChatListener!.remove()
+        }
+        
+        if updatedChatListener != nil {
+            updatedChatListener!.remove()
+        }
     }
 }
