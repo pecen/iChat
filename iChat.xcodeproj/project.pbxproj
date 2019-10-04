@@ -14,6 +14,8 @@
 		D02DE0FA233D1A7A005F9113 /* ProfileViewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02DE0F9233D1A7A005F9113 /* ProfileViewTableViewController.swift */; };
 		D034C579233D2AD900C1CEB5 /* Recent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D034C578233D2AD900C1CEB5 /* Recent.swift */; };
 		D034C57B233E345600C1CEB5 /* RecentChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D034C57A233E345600C1CEB5 /* RecentChatTableViewCell.swift */; };
+		D03B43D623460AD500C89027 /* PicturesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03B43D523460AD500C89027 /* PicturesCollectionViewController.swift */; };
+		D03B43D823460B1E00C89027 /* PicturesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03B43D723460B1E00C89027 /* PicturesCollectionViewCell.swift */; };
 		D064125D2332788F00985C84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D064125C2332788F00985C84 /* AppDelegate.swift */; };
 		D06412622332788F00985C84 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D06412602332788F00985C84 /* Main.storyboard */; };
 		D06412642332789100985C84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D06412632332789100985C84 /* Assets.xcassets */; };
@@ -46,6 +48,8 @@
 		D02DE0F9233D1A7A005F9113 /* ProfileViewTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewTableViewController.swift; sourceTree = "<group>"; };
 		D034C578233D2AD900C1CEB5 /* Recent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recent.swift; sourceTree = "<group>"; };
 		D034C57A233E345600C1CEB5 /* RecentChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentChatTableViewCell.swift; sourceTree = "<group>"; };
+		D03B43D523460AD500C89027 /* PicturesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicturesCollectionViewController.swift; sourceTree = "<group>"; };
+		D03B43D723460B1E00C89027 /* PicturesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicturesCollectionViewCell.swift; sourceTree = "<group>"; };
 		D06412592332788F00985C84 /* iChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D064125C2332788F00985C84 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D06412612332788F00985C84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -125,6 +129,7 @@
 				D0F4994B233A2BD8006E15A9 /* UsersTableViewController.swift */,
 				D02DE0F9233D1A7A005F9113 /* ProfileViewTableViewController.swift */,
 				D00469CC23450D8A00EDE1BA /* MapViewController.swift */,
+				D03B43D523460AD500C89027 /* PicturesCollectionViewController.swift */,
 				D08389A32341020A00D36072 /* ChatViewController.swift */,
 			);
 			path = SecondaryViews;
@@ -197,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				D0F49948233A2562006E15A9 /* UserTableViewCell.swift */,
+				D03B43D723460B1E00C89027 /* PicturesCollectionViewCell.swift */,
 				D034C57A233E345600C1CEB5 /* RecentChatTableViewCell.swift */,
 			);
 			path = CustomCells;
@@ -329,6 +335,8 @@
 				D08389A62342257500D36072 /* OutgoingMessages.swift in Sources */,
 				D00469CD23450D8A00EDE1BA /* MapViewController.swift in Sources */,
 				D064125D2332788F00985C84 /* AppDelegate.swift in Sources */,
+				D03B43D623460AD500C89027 /* PicturesCollectionViewController.swift in Sources */,
+				D03B43D823460B1E00C89027 /* PicturesCollectionViewCell.swift in Sources */,
 				D08389AA23427B7300D36072 /* Camera.swift in Sources */,
 				D064126F23328B8A00985C84 /* WelcomeViewController.swift in Sources */,
 				D0B81CD02343808F00A0BAC6 /* Downloads.swift in Sources */,

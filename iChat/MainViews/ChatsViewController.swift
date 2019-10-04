@@ -115,7 +115,7 @@ class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
         
         let muteAction = UITableViewRowAction(style: .default, title: muteTitle) { (action, indexPath) in
-            print("Mute pressed")
+            self.updatePushMembers(recent: tmpRecent, mute: mute)
         }
         
         muteAction.backgroundColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
@@ -251,5 +251,22 @@ class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         })
         
         tableView.reloadData()
+    }
+    
+    // MARK: - Helper functions
+    
+    func updatePushMembers(recent: NSDictionary, mute: Bool) {
+        var membersToPush = recent[kMEMBERSTOPUSH] as! [String]
+        
+        if mute {
+            let index = membersToPush.firstIndex(of: FUser.currentId())!
+            membersToPush.remove(at: index)
+        }
+        else {
+            membersToPush.append(FUser.currentId())
+        }
+        
+        // save the changes to Firestore
+        updateExistingRecentWithNewValues(chatRoomId: recent[kCHATROOMID] as! String, members: recent[kMEMBERS] as! [String], withValues: [kMEMBERSTOPUSH : membersToPush])
     }
 }

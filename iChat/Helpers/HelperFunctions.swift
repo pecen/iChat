@@ -102,6 +102,14 @@ func timeElapsed(date: Date) -> String {
     return elapsed!
 }
 
+//for avatars
+func dataImageFromString(pictureString: String, withBlock: (_ image: Data?) -> Void) {
+    
+    let imageData = NSData(base64Encoded: pictureString, options: NSData.Base64DecodingOptions(rawValue: 0))
+    
+    withBlock(imageData as Data?)
+}
+
 //for calls and chats
 func dictionaryFromSnapshots(snapshots: [DocumentSnapshot]) -> [NSDictionary] {
     
