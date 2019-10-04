@@ -61,7 +61,7 @@ class OutgoingMessage {
     }
     
     class func deleteMessage(withId: String, chatRoomId: String) {
-        
+        reference(.Message).document(FUser.currentId()).collection(chatRoomId).document(withId).delete()
     }
     
     class func updateMessage(withId: String, chatRoomId: String, memberIds: [String]) {

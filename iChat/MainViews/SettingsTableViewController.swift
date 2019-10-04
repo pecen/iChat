@@ -9,7 +9,18 @@
 import UIKit
 
 class SettingsTableViewController: UITableViewController {
-
+    @IBOutlet weak var avatarImageView: UIImageView!
+    @IBOutlet weak var fullNameLabel: UILabel!
+    
+    @IBOutlet weak var deleteButtonOutlet: UIButton!
+    @IBOutlet weak var showAvatarStatusSwitch: UISwitch!
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if FUser.currentUser() != nil {
+            setupUI()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,16 +31,25 @@ class SettingsTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return 3
     }
 
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 1 {
+            return 5
+        }
 
-    //MARK: IBActions
+        return 2
+    }
+
+
+    // MARK: IBActions
+    @IBAction func tellAFriendButtonPressed(_ sender: Any) {
+    }
+    @IBAction func cleanCacheButtonPressed(_ sender: Any) {
+    }
+    @IBAction func showAvatarSwitchValueChanged(_ sender: Any) {
+    }
     @IBAction func logOutButtonPressed(_ sender: Any) {
         FUser.logOutCurrentUser { (success) in
             if success {
@@ -45,4 +65,24 @@ class SettingsTableViewController: UITableViewController {
         self.present(mainView, animated: true, completion: nil)
     }
     
+    @IBAction func deleteAccountButtonPressed(_ sender: Any) {
+    }
+    
+    // MARK: - SetupUI
+    
+    func setupUI() {
+        let currentUser = FUser.currentUser()!
+        
+        fullNameLabel.text = currentUser.fullname
+        
+        if currentUser.avatar != "" {
+            imageFromData(pictureData: currentUser.avatar) { (avatarImage) in
+                if avatarImage != nil {
+                    self.avatarImageView.image = avatarImage!.circleMasked
+                }
+            }
+        }
+    }
+    
+    // set app version
 }
