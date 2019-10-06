@@ -43,8 +43,17 @@ class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         setTableViewHeader()
     }
+    
+    // MARK: - Set up the Group button properly for real devices
+    
+    // if this function is not implemented the "New Group" button will be displayed
+    // wrongly on real iPhones
+    
+    override func viewDidLayoutSubviews() {
+        setTableViewHeader()
+    }
 
-    //MARK: IBActions
+    // MARK: - IBActions
 
     @IBAction func CreateNewChatButtonPressed(_ sender: Any) {
         let userVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "usersTableView") as! UsersTableViewController

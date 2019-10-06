@@ -37,6 +37,7 @@
 		D0F49949233A2562006E15A9 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F49948233A2562006E15A9 /* UserTableViewCell.swift */; };
 		D0F4994C233A2BD8006E15A9 /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F4994B233A2BD8006E15A9 /* UsersTableViewController.swift */; };
 		D0F4994E233A3BAB006E15A9 /* ChatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F4994D233A3BAB006E15A9 /* ChatsViewController.swift */; };
+		D0F6A483234A1A8C00EEF528 /* BlockedUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F6A482234A1A8C00EEF528 /* BlockedUsersViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +74,7 @@
 		D0F49948233A2562006E15A9 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		D0F4994B233A2BD8006E15A9 /* UsersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableViewController.swift; sourceTree = "<group>"; };
 		D0F4994D233A3BAB006E15A9 /* ChatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsViewController.swift; sourceTree = "<group>"; };
+		D0F6A482234A1A8C00EEF528 /* BlockedUsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockedUsersViewController.swift; sourceTree = "<group>"; };
 		EDF0B002FF31DCC6009A6815 /* Pods-iChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iChat.debug.xcconfig"; path = "Target Support Files/Pods-iChat/Pods-iChat.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -130,6 +132,7 @@
 				D02DE0F9233D1A7A005F9113 /* ProfileViewTableViewController.swift */,
 				D00469CC23450D8A00EDE1BA /* MapViewController.swift */,
 				D03B43D523460AD500C89027 /* PicturesCollectionViewController.swift */,
+				D0F6A482234A1A8C00EEF528 /* BlockedUsersViewController.swift */,
 				D08389A32341020A00D36072 /* ChatViewController.swift */,
 			);
 			path = SecondaryViews;
@@ -348,6 +351,7 @@
 				D0F4994C233A2BD8006E15A9 /* UsersTableViewController.swift in Sources */,
 				D00469CB2344ED6D00EDE1BA /* AudioViewController.swift in Sources */,
 				D08389A42341020A00D36072 /* ChatViewController.swift in Sources */,
+				D0F6A483234A1A8C00EEF528 /* BlockedUsersViewController.swift in Sources */,
 				D06412792332A68900985C84 /* HelperFunctions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

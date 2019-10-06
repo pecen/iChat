@@ -283,7 +283,7 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         optionMenu.addAction(shareLocation)
         optionMenu.addAction(cancelAction)
         
-        // for iPad not to crash I need to which device it is, i.e. the one line code "self.present(optionMenu..."
+        // for iPad not to crash I need to know which device it is, i.e. the one line code "self.present(optionMenu..."
         // works fine for iPhones but not for iPads
         if ( UI_USER_INTERFACE_IDIOM() == .pad )
         {
