@@ -41,7 +41,7 @@ class UserTableViewCell: UITableViewCell {
     func generateCellWith(fUser: FUser, indexPath: IndexPath){
         self.indexPath = indexPath
         self.fullNameLabel.text = fUser.fullname
-        
+
         if fUser.avatar != "" {
             imageFromData(pictureData: fUser.avatar) { (avatarImage) in
                 if avatarImage != nil {

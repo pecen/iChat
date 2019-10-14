@@ -104,11 +104,17 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         
         createTypingObserver()
         
+        loadUserDefaults()
+        
         JSQMessagesCollectionViewCell.registerMenuAction(#selector(delete))
         
         navigationItem.largeTitleDisplayMode = .never
         
         self.navigationItem.leftBarButtonItems = [UIBarButtonItem(image: UIImage(named: "Back"), style: .plain, target: self, action: #selector(self.backAction))]
+        
+        if isGroup! {
+            getCurrentGroup(withId: chatRoomId)
+        }
         
         collectionView?.collectionViewLayout.incomingAvatarViewSize = CGSize.zero
         collectionView?.collectionViewLayout.outgoingAvatarViewSize = CGSize.zero
@@ -699,7 +705,10 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
     }
     
     @objc func showGroup() {
-        print("show group")
+        let groupVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "groupView") as! GroupViewController
+        
+        groupVC.group = group!
+        self.navigationController?.pushViewController(groupVC, animated: true)
     }
     
     @objc func showUserProfile() {
@@ -857,6 +866,17 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         avatarButton.addTarget(self, action: #selector(self.showUserProfile), for: .touchUpInside)
     }
     
+    func setUIForGroupChat() {
+        imageFromData(pictureData: group![kAVATAR] as! String) { (image) in
+            if image != nil {
+                avatarButton.setImage(image!.circleMasked, for: .normal)
+            }
+        }
+        
+        titleLabel.text = titleName
+        subTitleLabel.text = ""
+    }
+    
     // MARK: - UIImagePickerController delegate
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -941,6 +961,32 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
     
     // MARK: - Helper functions
     
+    func loadUserDefaults() {
+        firstLoad = userDefaults.bool(forKey: kFIRSTRUN)
+        
+        if !firstLoad! {
+            userDefaults.set(true, forKey: kFIRSTRUN)
+            userDefaults.set(showAvatars, forKey: kSHOWAVATAR)
+            
+            userDefaults.synchronize()
+        }
+        
+        showAvatars = userDefaults.bool(forKey: kSHOWAVATAR)
+        checkForBacgroundImage()
+    }
+    
+    func checkForBacgroundImage() {
+        if userDefaults.object(forKey: kBACKGROUBNDIMAGE) != nil {
+            self.collectionView.backgroundColor = .clear
+            
+            let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
+            
+            imageView.image = UIImage(named: userDefaults.object(forKey: kBACKGROUBNDIMAGE) as! String)!
+            //imageView.contentMode = .scaleAspectFit
+            self.view.insertSubview(imageView, at: 0)
+        }
+    }
+    
     func addNewPictureMessageLink(link: String) {
         allPictureMessages.append(link)
     }
@@ -1003,6 +1049,17 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         
         if updatedChatListener != nil {
             updatedChatListener!.remove()
+        }
+    }
+    
+    func getCurrentGroup(withId: String) {
+        reference(.Group).document(withId).getDocument { (snapshot, error) in
+            guard let snapshot = snapshot else { return }
+            
+            if snapshot.exists {
+                self.group = snapshot.data() as! NSDictionary
+                self.setUIForGroupChat()
+            }
         }
     }
 }

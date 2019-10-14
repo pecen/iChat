@@ -103,7 +103,7 @@ func restartRecentChat(recent: NSDictionary) {
     }
     
     if recent[kTYPE] as! String == kGROUP {
-        createRecent(members: recent[kMEMBERSTOPUSH] as! [String], chatRoomId: recent[kCHATROOMID] as! String, withUserUserName: recent[kWITHUSERUSERNAME] as! String, type: kGROUP, users: nil, avatarOfGroup: recent[kAVATAR] as? String)
+        createRecent(members: recent[kMEMBERSTOPUSH] as! [String], chatRoomId: recent[kCHATROOMID] as! String, withUserUserName: recent[kWITHUSERFULLNAME] as! String, type: kGROUP, users: nil, avatarOfGroup: recent[kAVATAR] as? String)
     }
 }
 
@@ -167,6 +167,19 @@ func clearRecentCounter(chatRoomId: String) {
 
 func clearRecentCounterItem(recent: NSDictionary) {
     reference(.Recent).document(recent[kRECENTID] as! String).updateData([kCOUNTER : 0])
+}
+
+// group
+
+func createRecentsForNewMembers(groupId: String, groupName: String, membersToPush: [String], avatar: String) {
+    createRecent(members: membersToPush, chatRoomId: groupId, withUserUserName: groupName, type: kGROUP, users: nil, avatarOfGroup: avatar)
+}
+
+func startGroupChat(group: Group) {
+    let chatRoomId = group.groupDict[kGROUPID] as! String
+    let members = group.groupDict[kMEMBERS] as! [String]
+    
+    createRecent(members: members, chatRoomId: chatRoomId, withUserUserName: group.groupDict[kNAME] as! String, type: kGROUP, users: nil, avatarOfGroup: group.groupDict[kAVATAR] as? String)
 }
 
 func updateExistingRecentWithNewValues(chatRoomId: String, members: [String], withValues: [String : Any]){

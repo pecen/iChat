@@ -16,6 +16,7 @@
 		D034C57B233E345600C1CEB5 /* RecentChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D034C57A233E345600C1CEB5 /* RecentChatTableViewCell.swift */; };
 		D03B43D623460AD500C89027 /* PicturesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03B43D523460AD500C89027 /* PicturesCollectionViewController.swift */; };
 		D03B43D823460B1E00C89027 /* PicturesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03B43D723460B1E00C89027 /* PicturesCollectionViewCell.swift */; };
+		D0547908234E553900522345 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0547907234E553900522345 /* Group.swift */; };
 		D064125D2332788F00985C84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D064125C2332788F00985C84 /* AppDelegate.swift */; };
 		D06412622332788F00985C84 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D06412602332788F00985C84 /* Main.storyboard */; };
 		D06412642332789100985C84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D06412632332789100985C84 /* Assets.xcassets */; };
@@ -27,6 +28,8 @@
 		D06412772332A5C000985C84 /* CollectionReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06412762332A5C000985C84 /* CollectionReference.swift */; };
 		D06412792332A68900985C84 /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06412782332A68900985C84 /* HelperFunctions.swift */; };
 		D064127B2333E79D00985C84 /* FinishRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D064127A2333E79D00985C84 /* FinishRegistrationViewController.swift */; };
+		D07FB6DE234F975C007DB9D2 /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07FB6DD234F975C007DB9D2 /* GroupViewController.swift */; };
+		D07FB6E02350BE0C007DB9D2 /* InviteUserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07FB6DF2350BE0C007DB9D2 /* InviteUserTableViewController.swift */; };
 		D08389A42341020A00D36072 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08389A32341020A00D36072 /* ChatViewController.swift */; };
 		D08389A62342257500D36072 /* OutgoingMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08389A52342257500D36072 /* OutgoingMessages.swift */; };
 		D08389A8234238E000D36072 /* IncomingMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08389A7234238E000D36072 /* IncomingMessages.swift */; };
@@ -42,6 +45,10 @@
 		D0F6A487234B92C600EEF528 /* BackgroundCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F6A486234B92C600EEF528 /* BackgroundCollectionViewCell.swift */; };
 		D0F6A489234C9FB300EEF528 /* TermsAndConditionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F6A488234C9FB300EEF528 /* TermsAndConditionsViewController.swift */; };
 		D0F6A48B234CA61D00EEF528 /* EditProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F6A48A234CA61D00EEF528 /* EditProfileTableViewController.swift */; };
+		D0F6A48E234CBB5300EEF528 /* ContactsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F6A48D234CBB5300EEF528 /* ContactsTableViewController.swift */; };
+		D0F6A490234CBF0000EEF528 /* CountryCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F6A48F234CBF0000EEF528 /* CountryCode.swift */; };
+		D0F6A492234CEB6000EEF528 /* GroupMemberCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F6A491234CEB6000EEF528 /* GroupMemberCollectionViewCell.swift */; };
+		D0F6A494234CF00600EEF528 /* NewGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F6A493234CF00600EEF528 /* NewGroupViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +62,7 @@
 		D034C57A233E345600C1CEB5 /* RecentChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentChatTableViewCell.swift; sourceTree = "<group>"; };
 		D03B43D523460AD500C89027 /* PicturesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicturesCollectionViewController.swift; sourceTree = "<group>"; };
 		D03B43D723460B1E00C89027 /* PicturesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicturesCollectionViewCell.swift; sourceTree = "<group>"; };
+		D0547907234E553900522345 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		D06412592332788F00985C84 /* iChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D064125C2332788F00985C84 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D06412612332788F00985C84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -68,6 +76,8 @@
 		D06412762332A5C000985C84 /* CollectionReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionReference.swift; sourceTree = "<group>"; };
 		D06412782332A68900985C84 /* HelperFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperFunctions.swift; sourceTree = "<group>"; };
 		D064127A2333E79D00985C84 /* FinishRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishRegistrationViewController.swift; sourceTree = "<group>"; };
+		D07FB6DD234F975C007DB9D2 /* GroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
+		D07FB6DF2350BE0C007DB9D2 /* InviteUserTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteUserTableViewController.swift; sourceTree = "<group>"; };
 		D08389A32341020A00D36072 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		D08389A52342257500D36072 /* OutgoingMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutgoingMessages.swift; sourceTree = "<group>"; };
 		D08389A7234238E000D36072 /* IncomingMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomingMessages.swift; sourceTree = "<group>"; };
@@ -83,6 +93,10 @@
 		D0F6A486234B92C600EEF528 /* BackgroundCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundCollectionViewCell.swift; sourceTree = "<group>"; };
 		D0F6A488234C9FB300EEF528 /* TermsAndConditionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionsViewController.swift; sourceTree = "<group>"; };
 		D0F6A48A234CA61D00EEF528 /* EditProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileTableViewController.swift; sourceTree = "<group>"; };
+		D0F6A48D234CBB5300EEF528 /* ContactsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsTableViewController.swift; sourceTree = "<group>"; };
+		D0F6A48F234CBF0000EEF528 /* CountryCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCode.swift; sourceTree = "<group>"; };
+		D0F6A491234CEB6000EEF528 /* GroupMemberCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupMemberCollectionViewCell.swift; sourceTree = "<group>"; };
+		D0F6A493234CF00600EEF528 /* NewGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGroupViewController.swift; sourceTree = "<group>"; };
 		EDF0B002FF31DCC6009A6815 /* Pods-iChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iChat.debug.xcconfig"; path = "Target Support Files/Pods-iChat/Pods-iChat.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -139,12 +153,13 @@
 				D0F4994B233A2BD8006E15A9 /* UsersTableViewController.swift */,
 				D02DE0F9233D1A7A005F9113 /* ProfileViewTableViewController.swift */,
 				D00469CC23450D8A00EDE1BA /* MapViewController.swift */,
-				D0F6A484234B92AF00EEF528 /* BackgroundCollectionViewController.swift */,
 				D03B43D523460AD500C89027 /* PicturesCollectionViewController.swift */,
-				D0F6A482234A1A8C00EEF528 /* BlockedUsersViewController.swift */,
-				D0F6A48A234CA61D00EEF528 /* EditProfileTableViewController.swift */,
-				D0F6A488234C9FB300EEF528 /* TermsAndConditionsViewController.swift */,
+				D07FB6DD234F975C007DB9D2 /* GroupViewController.swift */,
+				D07FB6DF2350BE0C007DB9D2 /* InviteUserTableViewController.swift */,
+				D0F6A48D234CBB5300EEF528 /* ContactsTableViewController.swift */,
+				D0F6A493234CF00600EEF528 /* NewGroupViewController.swift */,
 				D08389A32341020A00D36072 /* ChatViewController.swift */,
+				D0F6A48C234CBB1500EEF528 /* Settings */,
 			);
 			path = SecondaryViews;
 			sourceTree = "<group>";
@@ -203,7 +218,9 @@
 				D0641272233299D100985C84 /* FUser.swift */,
 				D034C578233D2AD900C1CEB5 /* Recent.swift */,
 				D08389A52342257500D36072 /* OutgoingMessages.swift */,
+				D0F6A48F234CBF0000EEF528 /* CountryCode.swift */,
 				D08389A7234238E000D36072 /* IncomingMessages.swift */,
+				D0547907234E553900522345 /* Group.swift */,
 				D08389A923427B7300D36072 /* Camera.swift */,
 				D0EF23F22343AFD500D20F4C /* PhotoMediaItem.swift */,
 				D00469C82344E1FD00EDE1BA /* VideoMessage.swift */,
@@ -217,10 +234,22 @@
 			children = (
 				D0F49948233A2562006E15A9 /* UserTableViewCell.swift */,
 				D03B43D723460B1E00C89027 /* PicturesCollectionViewCell.swift */,
+				D0F6A491234CEB6000EEF528 /* GroupMemberCollectionViewCell.swift */,
 				D0F6A486234B92C600EEF528 /* BackgroundCollectionViewCell.swift */,
 				D034C57A233E345600C1CEB5 /* RecentChatTableViewCell.swift */,
 			);
 			path = CustomCells;
+			sourceTree = "<group>";
+		};
+		D0F6A48C234CBB1500EEF528 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				D0F6A484234B92AF00EEF528 /* BackgroundCollectionViewController.swift */,
+				D0F6A482234A1A8C00EEF528 /* BlockedUsersViewController.swift */,
+				D0F6A48A234CA61D00EEF528 /* EditProfileTableViewController.swift */,
+				D0F6A488234C9FB300EEF528 /* TermsAndConditionsViewController.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -339,6 +368,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D07FB6DE234F975C007DB9D2 /* GroupViewController.swift in Sources */,
 				D0641273233299D100985C84 /* FUser.swift in Sources */,
 				D034C579233D2AD900C1CEB5 /* Recent.swift in Sources */,
 				D0F49949233A2562006E15A9 /* UserTableViewCell.swift in Sources */,
@@ -348,6 +378,7 @@
 				D08389A8234238E000D36072 /* IncomingMessages.swift in Sources */,
 				D034C57B233E345600C1CEB5 /* RecentChatTableViewCell.swift in Sources */,
 				D08389A62342257500D36072 /* OutgoingMessages.swift in Sources */,
+				D07FB6E02350BE0C007DB9D2 /* InviteUserTableViewController.swift in Sources */,
 				D0F6A485234B92B000EEF528 /* BackgroundCollectionViewController.swift in Sources */,
 				D00469CD23450D8A00EDE1BA /* MapViewController.swift in Sources */,
 				D064125D2332788F00985C84 /* AppDelegate.swift in Sources */,
@@ -362,13 +393,18 @@
 				D0F4994E233A3BAB006E15A9 /* ChatsViewController.swift in Sources */,
 				D0F6A487234B92C600EEF528 /* BackgroundCollectionViewCell.swift in Sources */,
 				D064127523329AAF00985C84 /* Constants.swift in Sources */,
+				D0F6A494234CF00600EEF528 /* NewGroupViewController.swift in Sources */,
 				D0F6A48B234CA61D00EEF528 /* EditProfileTableViewController.swift in Sources */,
 				D064127B2333E79D00985C84 /* FinishRegistrationViewController.swift in Sources */,
 				D0F4994C233A2BD8006E15A9 /* UsersTableViewController.swift in Sources */,
 				D00469CB2344ED6D00EDE1BA /* AudioViewController.swift in Sources */,
+				D0547908234E553900522345 /* Group.swift in Sources */,
+				D0F6A490234CBF0000EEF528 /* CountryCode.swift in Sources */,
+				D0F6A492234CEB6000EEF528 /* GroupMemberCollectionViewCell.swift in Sources */,
 				D08389A42341020A00D36072 /* ChatViewController.swift in Sources */,
 				D0F6A483234A1A8C00EEF528 /* BlockedUsersViewController.swift in Sources */,
 				D06412792332A68900985C84 /* HelperFunctions.swift in Sources */,
+				D0F6A48E234CBB5300EEF528 /* ContactsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -518,6 +554,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8LQCVK238Y;
 				INFOPLIST_FILE = iChat/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -537,6 +574,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8LQCVK238Y;
 				INFOPLIST_FILE = iChat/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

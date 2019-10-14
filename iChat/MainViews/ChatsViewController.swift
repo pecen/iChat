@@ -56,9 +56,17 @@ class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     // MARK: - IBActions
 
     @IBAction func CreateNewChatButtonPressed(_ sender: Any) {
-        let userVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "usersTableView") as! UsersTableViewController
+        // The old code up until section 20 where we now instead redirect to
+        // the Contacts page when CreateNewChat is pressed
+//        let userVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "usersTableView") as! UsersTableViewController
+//
+//        self.navigationController?.pushViewController(userVC, animated: true)
         
-        self.navigationController?.pushViewController(userVC, animated: true)
+        selectUserForChat(isGroup: false)
+    }
+    
+    @objc func groupButtonPressed() {
+        selectUserForChat(isGroup: true)
     }
     
     // MARK: - TableViewDataSource
@@ -210,10 +218,7 @@ class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         tableView.tableHeaderView = headerView
     }
-    
-    @objc func groupButtonPressed() {
-        print("hello")
-    }
+
     
     // MARK: - RecentChatsCell delegate
     
@@ -263,6 +268,14 @@ class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     // MARK: - Helper functions
+    
+    func selectUserForChat(isGroup: Bool) {
+        let contactsVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "contactsView") as! ContactsTableViewController
+
+        contactsVC.isGroup = isGroup
+        
+        self.navigationController?.pushViewController(contactsVC, animated: true)
+    }
     
     func updatePushMembers(recent: NSDictionary, mute: Bool) {
         var membersToPush = recent[kMEMBERSTOPUSH] as! [String]
