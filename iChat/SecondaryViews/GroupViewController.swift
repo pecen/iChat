@@ -8,8 +8,9 @@
 
 import UIKit
 import ProgressHUD
+import ImagePicker
 
-class GroupViewController: UIViewController {
+class GroupViewController: UIViewController, ImagePickerDelegate {
     @IBOutlet weak var cameraButtonOutlet: UIImageView!
     @IBOutlet weak var groupNameTextField: UITextField!
     @IBOutlet weak var editButtonOutlet: UIButton!
@@ -49,14 +50,14 @@ class GroupViewController: UIViewController {
             return
         }
         
-        let avatarData = cameraButtonOutlet.image?.jpegData(compressionQuality: 0.7)!
+        let avatarData = cameraButtonOutlet.image?.jpegData(compressionQuality: 0.4)!
         let avatarString = avatarData?.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
         
         withValues = [kNAME : groupNameTextField.text!, kAVATAR : avatarString!]
         
         Group.updateGroup(groupId: group[kGROUPID] as! String, withValues: withValues)
         
-        withValues = [kWITHUSERFULLNAME : groupNameTextField.text!, kAVATAR : avatarString]
+        withValues = [kWITHUSERFULLNAME : groupNameTextField.text!, kAVATAR : avatarString!]
         
         updateExistingRecentWithNewValues(chatRoomId: group[kGROUPID] as! String, members: group[kMEMBERS] as! [String], withValues: withValues)
         
@@ -85,7 +86,11 @@ class GroupViewController: UIViewController {
     func showIconOptions() {
         let optionMenu = UIAlertController(title: "Choose group Icon", message: nil, preferredStyle: .actionSheet)
         let takePhotoAction = UIAlertAction(title: "Take/Choose Photo", style: .default) { (alert) in
-            print("camera")
+            let imagePicker = ImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.imageLimit = 1
+            
+            self.present(imagePicker, animated: true, completion: nil)
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (alert) in
             
@@ -119,5 +124,25 @@ class GroupViewController: UIViewController {
         else {
             self.present(optionMenu, animated: true, completion: nil)
         }
+    }
+    
+    // MARK: - ImagePickerDelegate
+
+    func wrapperDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func doneButtonDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
+        if images.count > 0 {
+            self.groupIcon = images.first!
+            self.cameraButtonOutlet.image = self.groupIcon?.circleMasked
+            self.editButtonOutlet.isHidden = false
+        }
+        
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func cancelButtonDidPress(_ imagePicker: ImagePickerController) {
+        self.dismiss(animated: true, completion: nil)
     }
 }

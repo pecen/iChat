@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import CoreLocation
+import OneSignal
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate {
@@ -37,7 +38,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
             }
         })
         
-       return true
+        func userDidLogin(userId: String) {
+            self.startOneSignal()
+        }
+        
+        NotificationCenter.default.addObserver(forName: NSNotification.Name(USER_DID_LOGIN_NOTIFICATION), object: nil, queue: nil) { (notification) in
+            let userId = notification.userInfo![kUSERID] as! String
+            
+            UserDefaults.standard.set(userId, forKey: kUSERID)
+            UserDefaults.standard.synchronize()
+            
+            userDidLogin(userId: userId)
+        }
+        
+        OneSignal.initWithLaunchOptions(launchOptions, appId: kONESIGNALAPPID)
+        
+        return true
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -45,10 +61,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
     }
 
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        if FUser.currentUser() != nil {
+            updateCurrentUserInFirestore(withValues: [kISONLINE : true]) { (success) in
+                 
+            }
+        }
+        
+        locationManagerStart()
+    }
+
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
         
+        if FUser.currentUser() != nil {
+            updateCurrentUserInFirestore(withValues: [kISONLINE : false]) { (success) in
+                 
+            }
+        }
+
         locationManagerStop()
     }
 
@@ -56,17 +89,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
     }
 
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-        locationManagerStart()
-    }
-
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
     
-    //MARK: GoToApp
+    // MARK: - GoToApp
         
     func goToApp() {
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: USER_DID_LOGIN_NOTIFICATION), object: nil, userInfo: [kUSERID : FUser.currentId()])
@@ -122,6 +149,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         coordinates = locations.last!.coordinate
+    }
+    
+    // MARK: - OneSignal
+    
+    func startOneSignal() {
+        let status: OSPermissionSubscriptionState = OneSignal.getPermissionSubscriptionState()
+        let userId = status.subscriptionStatus.userId
+        let pushToken = status.subscriptionStatus.pushToken
+        
+        if pushToken != nil {
+            if let playerId = userId {
+                UserDefaults.standard.set(playerId, forKey: kPUSHID)
+            }
+            else {
+                UserDefaults.standard.removeObject(forKey: kPUSHID)
+            }
+            
+            UserDefaults.standard.synchronize()
+        }
+        
+        // update OneSignalId
+        
+        updateOneSignalId()
     }
 
 }

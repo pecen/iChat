@@ -8,8 +8,9 @@
 
 import UIKit
 import ProgressHUD
+import ImagePicker
 
-class FinishRegistrationViewController: UIViewController {
+class FinishRegistrationViewController: UIViewController, ImagePickerDelegate {
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var surnameTextField: UITextField!
@@ -26,11 +27,20 @@ class FinishRegistrationViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        print(email!, pwd!)
+        avatarImageView.isUserInteractionEnabled = true
     }
     
 
     //MARK: IBActions
+    
+    @IBAction func avatarImageTap(_ sender: Any) {
+        let imagePickerController = ImagePickerController()
+        imagePickerController.delegate = self
+        imagePickerController.imageLimit = 1
+        
+        present(imagePickerController, animated: true, completion: nil)
+        dismissKeyboard()
+    }
     
     @IBAction func cancelButtonPressed(_ sender: Any) {
         cleanTextFields()
@@ -80,7 +90,7 @@ class FinishRegistrationViewController: UIViewController {
             self.finishRegistration(withValues: tempDict)
         }
         else {
-            let avatarData = avatarImg?.jpegData(compressionQuality: 0.7)
+            let avatarData = avatarImg?.jpegData(compressionQuality: 0.5)
             let avatarStr = avatarData!.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
             
             tempDict[kAVATAR] = avatarStr
@@ -128,5 +138,25 @@ class FinishRegistrationViewController: UIViewController {
         cityTextField.text = ""
         countryTextField.text = ""
         phoneTextField.text = ""
+    }
+    
+    // MARK: - ImagePickerDelegatee
+
+    func wrapperDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func doneButtonDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
+        if images.count > 0 {
+            self.avatarImg = images.first!
+            self.avatarImageView.image = self.avatarImg?.circleMasked
+        }
+        
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func cancelButtonDidPress(_ imagePicker: ImagePickerController) {
+        self.dismiss(animated: true, completion: nil)
+
     }
 }

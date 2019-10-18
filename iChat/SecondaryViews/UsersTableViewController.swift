@@ -142,8 +142,6 @@ class UsersTableViewController: UITableViewController, UISearchResultsUpdating, 
         else {
             ProgressHUD.showError("This user is not available for chat!")
         }
-        
-        startPrivateChat(user1: FUser.currentUser()!, user2: user)
     }
     
     func loadUsers(filter: String) {

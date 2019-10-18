@@ -8,8 +8,9 @@
 
 import UIKit
 import ProgressHUD
+import ImagePicker
 
-class NewGroupViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, GroupMemberCollectionViewCellDelegate {
+class NewGroupViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, GroupMemberCollectionViewCellDelegate, ImagePickerDelegate {
     @IBOutlet weak var editAvatarButtonOutlet: UIButton!
     @IBOutlet weak var groupIconImageView: UIImageView!
     @IBOutlet weak var groupSubjectTextField: UITextField!
@@ -67,8 +68,8 @@ class NewGroupViewController: UIViewController, UICollectionViewDataSource, UICo
             var avatar = avatarData.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
             
             if groupIcon != nil {
-                let avatarData = groupIcon!.jpegData(compressionQuality: 0.7)!
-                let avatar = avatarData.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
+                let avatarData = groupIcon!.jpegData(compressionQuality: 0.4)!
+                avatar = avatarData.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
             }
             
             let groupId = UUID().uuidString
@@ -85,8 +86,8 @@ class NewGroupViewController: UIViewController, UICollectionViewDataSource, UICo
             let chatVC = ChatViewController()
             
             chatVC.titleName = group.groupDict[kNAME] as? String
-            chatVC.memberIds = group.groupDict[kMEMBERS] as! [String]
-            chatVC.membersToPush = group.groupDict[kMEMBERS] as! [String]
+            chatVC.memberIds = group.groupDict[kMEMBERS] as? [String]
+            chatVC.membersToPush = group.groupDict[kMEMBERS] as? [String]
             chatVC.chatRoomId = groupId
             chatVC.isGroup = true
             chatVC.hidesBottomBarWhenPushed = true
@@ -113,7 +114,11 @@ class NewGroupViewController: UIViewController, UICollectionViewDataSource, UICo
     func showIconOptions() {
         let optionMenu = UIAlertController(title: "Choose group Icon", message: nil, preferredStyle: .actionSheet)
         let takePhotoAction = UIAlertAction(title: "Take/Choose Photo", style: .default) { (alert) in
-            print("camera")
+            let imagePicker = ImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.imageLimit = 1
+            
+            self.present(imagePicker, animated: true, completion: nil)
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (alert) in
             
@@ -156,4 +161,23 @@ class NewGroupViewController: UIViewController, UICollectionViewDataSource, UICo
         self.navigationItem.rightBarButtonItem?.isEnabled = allMembers.count > 0
     }
     
+    // MARK: - ImagePickerDelegate
+    
+    func wrapperDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func doneButtonDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
+        if images.count > 0 {
+            self.groupIcon = images.first!
+            self.groupIconImageView.image = self.groupIcon!.circleMasked
+            self.editAvatarButtonOutlet.isHidden = false
+        }
+        
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func cancelButtonDidPress(_ imagePicker: ImagePickerController) {
+        self.dismiss(animated: true, completion: nil)
+    }
 }

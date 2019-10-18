@@ -45,7 +45,10 @@ class RecentChatTableViewCell: UITableViewCell {
     func generateCell(recentChat: NSDictionary, indexPath: IndexPath) {
         self.indexPath = indexPath
         self.nameLabel.text = recentChat[kWITHUSERFULLNAME] as? String
-        self.lastMsgLabel.text = recentChat[kLASTMESSAGE] as? String
+        
+        let decryptedText = Encryption.decryptText(chatRoomId: recentChat[kCHATROOMID] as! String, encryptedMsg: recentChat[kLASTMESSAGE] as! String)
+        
+        self.lastMsgLabel.text = decryptedText // recentChat[kLASTMESSAGE] as? String
         self.msgCounterLabel.text = recentChat[kCOUNTER] as? String
         
         if let avatarString = recentChat[kAVATAR] {

@@ -58,6 +58,9 @@ class OutgoingMessage {
         updateRecents(chatRoomId: chatRoomId, lastMessage: msgDictionary[kMESSAGE] as! String)
         
         // send push notifications
+        let pushText = "[\(messageDict[kTYPE] as! String) message]"
+        
+        sendPushNotification(memberToPush: membersToPush, message: pushText )
     }
     
     class func deleteMessage(withId: String, chatRoomId: String) {

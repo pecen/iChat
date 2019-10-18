@@ -175,10 +175,14 @@
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatarPlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="xbb-a3-eLd">
                                 <rect key="frame" x="137.5" y="83" width="100" height="100"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="Ogj-l2-iER"/>
                                     <constraint firstAttribute="height" constant="100" id="aJl-YU-C2I"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="2pz-vT-0YT" appends="YES" id="7To-G1-Zmr"/>
+                                </connections>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EwR-NS-EqE">
                                 <rect key="frame" x="16" y="193" width="343" height="34"/>
@@ -241,6 +245,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P7z-SP-KaT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="2pz-vT-0YT" userLabel="AvatarTap">
+                    <connections>
+                        <action selector="avatarImageTap:" destination="g49-tL-pV5" id="oad-F3-nl8"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="919.20000000000005" y="138.98050974512745"/>
         </scene>
@@ -1152,7 +1161,7 @@
                                     <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" translatesAutoresizingMaskIntoConstraints="NO" id="o6U-Wa-FWF" customClass="GroupMemberCollectionViewCell" customModule="iChat" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" reuseIdentifier="Cell" translatesAutoresizingMaskIntoConstraints="NO" id="o6U-Wa-FWF" customClass="GroupMemberCollectionViewCell" customModule="iChat" customModuleProvider="target">
                                         <rect key="frame" x="10" y="10" width="100" height="100"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="XuO-Mu-5ui">
@@ -1436,14 +1445,14 @@
                                                     </constraints>
                                                 </view>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TLq-Ge-gqw" userLabel="Call Button">
-                                                    <rect key="frame" x="16" y="2.5" width="149" height="60"/>
+                                                    <rect key="frame" x="16" y="17.5" width="149" height="30"/>
                                                     <state key="normal" image="call"/>
                                                     <connections>
                                                         <action selector="callButtonPressed:" destination="B6Q-LJ-w69" eventType="touchUpInside" id="3xz-hf-ogi"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6M1-EF-u3E" userLabel="Msg Button">
-                                                    <rect key="frame" x="210" y="2.5" width="149" height="60"/>
+                                                    <rect key="frame" x="210" y="17.5" width="149" height="30"/>
                                                     <state key="normal" image="message"/>
                                                     <connections>
                                                         <action selector="chatButtonPressed:" destination="B6Q-LJ-w69" eventType="touchUpInside" id="a0L-g7-Xcw"/>

@@ -140,9 +140,11 @@ PODS:
     - nanopb/encode (= 0.3.901)
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
+  - OneSignal (2.11.2)
   - pop (1.0.12)
   - ProgressHUD (2.51)
   - Protobuf (3.10.0)
+  - RNCryptor (5.1.0)
   - SCSiriWaveformView (1.1.1)
   - SDWebImage (4.0.0):
     - SDWebImage/Core (= 4.0.0)
@@ -159,10 +161,12 @@ DEPENDENCIES:
   - IQAudioRecorderController
   - JSQMessagesViewController (= 7.3.3)
   - MBProgressHUD
+  - OneSignal
   - ProgressHUD
+  - RNCryptor
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - BoringSSL-GRPC
     - DACircularProgress
     - Firebase
@@ -191,9 +195,11 @@ SPEC REPOS:
     - leveldb-library
     - MBProgressHUD
     - nanopb
+    - OneSignal
     - pop
     - ProgressHUD
     - Protobuf
+    - RNCryptor
     - SCSiriWaveformView
     - SDWebImage
 
@@ -226,12 +232,14 @@ SPEC CHECKSUMS:
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
+  OneSignal: 4e3e68bb6c29975286a2fa910cb49132bc6e20bb
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
   ProgressHUD: 54b4c2fa202bf3da7dddc1c698ae4e6376333bd9
   Protobuf: a4dc852ad69c027ca2166ed287b856697814375b
+  RNCryptor: a369134686cd2ad391323cc856b62e591193ba79
   SCSiriWaveformView: 15b9dd6f94c7536e2032b34a35c6ff74d38c7411
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
 
-PODFILE CHECKSUM: 990e58f50889ad8e0825a53db61c451c7c73ba47
+PODFILE CHECKSUM: e8ffee8134a6cbead15ade438a7fb414b67593c1
 
-COCOAPODS: 1.7.5
+COCOAPODS: 1.8.4

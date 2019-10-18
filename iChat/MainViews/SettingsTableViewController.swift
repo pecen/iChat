@@ -114,8 +114,7 @@ class SettingsTableViewController: UITableViewController {
     func showLoginView() {
         let mainView = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "welcome")
         
-        self.present(mainView, animated: false, completion: nil)
-        
+        self.present(mainView, animated: true, completion: nil)
     }
 
     @IBAction func deleteAccountButtonPressed(_ sender: Any) {
