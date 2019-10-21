@@ -149,6 +149,7 @@ PODS:
   - SDWebImage (4.0.0):
     - SDWebImage/Core (= 4.0.0)
   - SDWebImage/Core (4.0.0)
+  - SinchRTC (3.12.9)
 
 DEPENDENCIES:
   - Firebase/Auth
@@ -164,6 +165,7 @@ DEPENDENCIES:
   - OneSignal
   - ProgressHUD
   - RNCryptor
+  - SinchRTC
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -202,6 +204,8 @@ SPEC REPOS:
     - RNCryptor
     - SCSiriWaveformView
     - SDWebImage
+  trunk:
+    - SinchRTC
 
 SPEC CHECKSUMS:
   BoringSSL-GRPC: db8764df3204ccea016e1c8dd15d9a9ad63ff318
@@ -239,7 +243,8 @@ SPEC CHECKSUMS:
   RNCryptor: a369134686cd2ad391323cc856b62e591193ba79
   SCSiriWaveformView: 15b9dd6f94c7536e2032b34a35c6ff74d38c7411
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
+  SinchRTC: ed769fd3fec5940e6b75ed310e93796d62149810
 
-PODFILE CHECKSUM: e8ffee8134a6cbead15ade438a7fb414b67593c1
+PODFILE CHECKSUM: 0b9cfbea4c45767223ef7e22dc882a8a018c1274
 
 COCOAPODS: 1.8.4

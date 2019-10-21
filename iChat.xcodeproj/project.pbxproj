@@ -39,6 +39,9 @@
 		D08389A62342257500D36072 /* OutgoingMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08389A52342257500D36072 /* OutgoingMessages.swift */; };
 		D08389A8234238E000D36072 /* IncomingMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08389A7234238E000D36072 /* IncomingMessages.swift */; };
 		D08389AA23427B7300D36072 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08389A923427B7300D36072 /* Camera.swift */; };
+		D0965F3A235A20CA00C9D461 /* CallTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0965F39235A20CA00C9D461 /* CallTableViewCell.swift */; };
+		D0965F3C235A21AA00C9D461 /* CallClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0965F3B235A21AA00C9D461 /* CallClass.swift */; };
+		D0965F3E235B8AEE00C9D461 /* CallTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0965F3D235B8AEE00C9D461 /* CallTableViewController.swift */; };
 		D0B81CD02343808F00A0BAC6 /* Downloads.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B81CCF2343808F00A0BAC6 /* Downloads.swift */; };
 		D0E490D62354D8B3009EA7BE /* ImagePicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0E490D52354D8B3009EA7BE /* ImagePicker.framework */; };
 		D0EF23F32343AFD500D20F4C /* PhotoMediaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EF23F22343AFD500D20F4C /* PhotoMediaItem.swift */; };
@@ -121,6 +124,9 @@
 		D08389A52342257500D36072 /* OutgoingMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutgoingMessages.swift; sourceTree = "<group>"; };
 		D08389A7234238E000D36072 /* IncomingMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomingMessages.swift; sourceTree = "<group>"; };
 		D08389A923427B7300D36072 /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
+		D0965F39235A20CA00C9D461 /* CallTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallTableViewCell.swift; sourceTree = "<group>"; };
+		D0965F3B235A21AA00C9D461 /* CallClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallClass.swift; sourceTree = "<group>"; };
+		D0965F3D235B8AEE00C9D461 /* CallTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallTableViewController.swift; sourceTree = "<group>"; };
 		D0B81CCF2343808F00A0BAC6 /* Downloads.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Downloads.swift; sourceTree = "<group>"; };
 		D0E490D52354D8B3009EA7BE /* ImagePicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ImagePicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0EF23F22343AFD500D20F4C /* PhotoMediaItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoMediaItem.swift; sourceTree = "<group>"; };
@@ -195,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				D0F4994623392A22006E15A9 /* SettingsTableViewController.swift */,
+				D0965F3D235B8AEE00C9D461 /* CallTableViewController.swift */,
 				D0F4994D233A3BAB006E15A9 /* ChatsViewController.swift */,
 			);
 			path = MainViews;
@@ -286,6 +293,7 @@
 				D0F6A48F234CBF0000EEF528 /* CountryCode.swift */,
 				D08389A7234238E000D36072 /* IncomingMessages.swift */,
 				D040704B2354CB3700326E36 /* Encryption.swift */,
+				D0965F3B235A21AA00C9D461 /* CallClass.swift */,
 				D05B04072358D29900F486CB /* PushNotifications.swift */,
 				D0547907234E553900522345 /* Group.swift */,
 				D08389A923427B7300D36072 /* Camera.swift */,
@@ -302,6 +310,7 @@
 				D0F49948233A2562006E15A9 /* UserTableViewCell.swift */,
 				D03B43D723460B1E00C89027 /* PicturesCollectionViewCell.swift */,
 				D0F6A491234CEB6000EEF528 /* GroupMemberCollectionViewCell.swift */,
+				D0965F39235A20CA00C9D461 /* CallTableViewCell.swift */,
 				D0F6A486234B92C600EEF528 /* BackgroundCollectionViewCell.swift */,
 				D034C57A233E345600C1CEB5 /* RecentChatTableViewCell.swift */,
 			);
@@ -510,6 +519,7 @@
 				D07FB6E02350BE0C007DB9D2 /* InviteUserTableViewController.swift in Sources */,
 				D0F6A485234B92B000EEF528 /* BackgroundCollectionViewController.swift in Sources */,
 				D00469CD23450D8A00EDE1BA /* MapViewController.swift in Sources */,
+				D0965F3C235A21AA00C9D461 /* CallClass.swift in Sources */,
 				D064125D2332788F00985C84 /* AppDelegate.swift in Sources */,
 				D03B43D623460AD500C89027 /* PicturesCollectionViewController.swift in Sources */,
 				D03B43D823460B1E00C89027 /* PicturesCollectionViewCell.swift in Sources */,
@@ -520,6 +530,7 @@
 				D06412772332A5C000985C84 /* CollectionReference.swift in Sources */,
 				D0F4994723392A22006E15A9 /* SettingsTableViewController.swift in Sources */,
 				D0F4994E233A3BAB006E15A9 /* ChatsViewController.swift in Sources */,
+				D0965F3E235B8AEE00C9D461 /* CallTableViewController.swift in Sources */,
 				D0F6A487234B92C600EEF528 /* BackgroundCollectionViewCell.swift in Sources */,
 				D064127523329AAF00985C84 /* Constants.swift in Sources */,
 				D0F6A494234CF00600EEF528 /* NewGroupViewController.swift in Sources */,
@@ -529,6 +540,7 @@
 				D0F4994C233A2BD8006E15A9 /* UsersTableViewController.swift in Sources */,
 				D00469CB2344ED6D00EDE1BA /* AudioViewController.swift in Sources */,
 				D0547908234E553900522345 /* Group.swift in Sources */,
+				D0965F3A235A20CA00C9D461 /* CallTableViewCell.swift in Sources */,
 				D0F6A490234CBF0000EEF528 /* CountryCode.swift in Sources */,
 				D0F6A492234CEB6000EEF528 /* GroupMemberCollectionViewCell.swift in Sources */,
 				D08389A42341020A00D36072 /* ChatViewController.swift in Sources */,
