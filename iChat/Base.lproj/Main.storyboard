@@ -1120,6 +1120,143 @@
             </objects>
             <point key="canvasLocation" x="5759" y="-193"/>
         </scene>
+        <!--Call View Controller-->
+        <scene sceneID="lCP-YE-chG">
+            <objects>
+                <viewController storyboardIdentifier="CallVC" id="nO5-8R-e4d" customClass="CallViewController" customModule="iChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JNU-Uh-z6H">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Full Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ONX-c6-cdV">
+                                <rect key="frame" x="16" y="35" width="343" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="AkE-98-rGC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j9O-Ma-d90">
+                                <rect key="frame" x="16" y="87" width="343" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Ddb-lB-Ifh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatarPlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="jkP-4G-2Zh">
+                                <rect key="frame" x="122.5" y="159" width="130" height="130"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="130" id="Abx-aL-3eD"/>
+                                    <constraint firstAttribute="width" constant="130" id="phl-0c-emg"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cLg-fy-dqQ">
+                                <rect key="frame" x="247" y="329" width="88" height="88"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="88" id="K39-df-7Gb"/>
+                                    <constraint firstAttribute="width" constant="88" id="vli-ML-iUS"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="speaker"/>
+                                <connections>
+                                    <action selector="speakerButtonPressed:" destination="nO5-8R-e4d" eventType="touchUpInside" id="loZ-wp-cBE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wGC-kn-cg1">
+                                <rect key="frame" x="16" y="559" width="88" height="88"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="88" id="cS5-1W-cPR"/>
+                                    <constraint firstAttribute="height" constant="88" id="xR7-i8-P91"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="answer"/>
+                                <connections>
+                                    <action selector="answerButtonPressed:" destination="nO5-8R-e4d" eventType="touchUpInside" id="IpH-A6-i7m"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YzX-dV-F7M">
+                                <rect key="frame" x="143.5" y="559" width="88" height="88"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="88" id="W1Z-YO-s1A"/>
+                                    <constraint firstAttribute="height" constant="88" id="nCL-NW-hEc"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="hangup"/>
+                                <connections>
+                                    <action selector="endCallButtonPressed:" destination="nO5-8R-e4d" eventType="touchUpInside" id="38Z-Hm-aUv"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="huE-Et-F8j">
+                                <rect key="frame" x="271" y="559" width="88" height="88"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="88" id="7Ux-fn-3Ag"/>
+                                    <constraint firstAttribute="width" constant="88" id="rjD-KS-94H"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="hangup"/>
+                                <connections>
+                                    <action selector="declineButtonPressed:" destination="nO5-8R-e4d" eventType="touchUpInside" id="RzZ-yi-fwa"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kIb-oB-jp0">
+                                <rect key="frame" x="150" y="313" width="75" height="80"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="75" id="FuW-j5-5ps"/>
+                                    <constraint firstAttribute="height" constant="80" id="pQD-xx-Ss7"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="216-Sg-yeS">
+                                <rect key="frame" x="40" y="329" width="88" height="88"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="88" id="6W2-Xa-5Ea"/>
+                                    <constraint firstAttribute="width" constant="88" id="RSK-Ao-Odp"/>
+                                </constraints>
+                                <state key="normal" image="mute"/>
+                                <connections>
+                                    <action selector="muteButtonPressed:" destination="nO5-8R-e4d" eventType="touchUpInside" id="2oy-hB-06n"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="jkP-4G-2Zh" firstAttribute="centerX" secondItem="qbE-O9-K1R" secondAttribute="centerX" id="5dw-nB-p9E"/>
+                            <constraint firstItem="ONX-c6-cdV" firstAttribute="top" secondItem="qbE-O9-K1R" secondAttribute="top" constant="35" id="Cjw-wM-P52"/>
+                            <constraint firstItem="qbE-O9-K1R" firstAttribute="bottom" secondItem="wGC-kn-cg1" secondAttribute="bottom" constant="20" id="D8S-Ia-rEb"/>
+                            <constraint firstItem="qbE-O9-K1R" firstAttribute="bottom" secondItem="huE-Et-F8j" secondAttribute="bottom" constant="20" id="MaK-hT-8wL"/>
+                            <constraint firstItem="cLg-fy-dqQ" firstAttribute="leading" secondItem="kIb-oB-jp0" secondAttribute="trailing" constant="22" id="QMj-ji-QOU"/>
+                            <constraint firstItem="kIb-oB-jp0" firstAttribute="leading" secondItem="216-Sg-yeS" secondAttribute="trailing" constant="22" id="S6q-CL-Olr"/>
+                            <constraint firstItem="qbE-O9-K1R" firstAttribute="trailing" secondItem="huE-Et-F8j" secondAttribute="trailing" constant="16" id="aR2-da-Fzs"/>
+                            <constraint firstItem="jkP-4G-2Zh" firstAttribute="top" secondItem="j9O-Ma-d90" secondAttribute="bottom" constant="28" id="afV-JP-Uio"/>
+                            <constraint firstItem="kIb-oB-jp0" firstAttribute="top" secondItem="jkP-4G-2Zh" secondAttribute="bottom" constant="24" id="biJ-cd-L2K"/>
+                            <constraint firstItem="YzX-dV-F7M" firstAttribute="centerX" secondItem="qbE-O9-K1R" secondAttribute="centerX" id="e6o-f7-ndX"/>
+                            <constraint firstItem="qbE-O9-K1R" firstAttribute="trailing" secondItem="ONX-c6-cdV" secondAttribute="trailing" constant="16" id="e7Q-ck-Amf"/>
+                            <constraint firstItem="kIb-oB-jp0" firstAttribute="centerX" secondItem="qbE-O9-K1R" secondAttribute="centerX" id="gYK-MK-v3j"/>
+                            <constraint firstItem="j9O-Ma-d90" firstAttribute="leading" secondItem="qbE-O9-K1R" secondAttribute="leading" constant="16" id="lEI-bl-qVe"/>
+                            <constraint firstItem="qbE-O9-K1R" firstAttribute="bottom" secondItem="YzX-dV-F7M" secondAttribute="bottom" constant="20" id="m5u-Gb-PEX"/>
+                            <constraint firstItem="j9O-Ma-d90" firstAttribute="top" secondItem="ONX-c6-cdV" secondAttribute="bottom" constant="8" id="pte-Ba-QTQ"/>
+                            <constraint firstItem="wGC-kn-cg1" firstAttribute="leading" secondItem="qbE-O9-K1R" secondAttribute="leading" constant="16" id="qYU-Pe-5xB"/>
+                            <constraint firstItem="cLg-fy-dqQ" firstAttribute="top" secondItem="jkP-4G-2Zh" secondAttribute="bottom" constant="40" id="qaX-Ue-LCc"/>
+                            <constraint firstItem="ONX-c6-cdV" firstAttribute="leading" secondItem="qbE-O9-K1R" secondAttribute="leading" constant="16" id="uBj-WU-g9J"/>
+                            <constraint firstItem="qbE-O9-K1R" firstAttribute="trailing" secondItem="j9O-Ma-d90" secondAttribute="trailing" constant="16" id="uC7-80-Ba1"/>
+                            <constraint firstItem="216-Sg-yeS" firstAttribute="top" secondItem="jkP-4G-2Zh" secondAttribute="bottom" constant="40" id="wOf-El-RPv"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="qbE-O9-K1R"/>
+                    </view>
+                    <connections>
+                        <outlet property="answerButtonOutlet" destination="wGC-kn-cg1" id="Y30-rf-NGN"/>
+                        <outlet property="avatarImageView" destination="jkP-4G-2Zh" id="Crq-jv-7La"/>
+                        <outlet property="declineButtonOutlet" destination="huE-Et-F8j" id="M0U-pY-Fm2"/>
+                        <outlet property="endCallButtonOutlet" destination="YzX-dV-F7M" id="jdx-Vk-aHS"/>
+                        <outlet property="muteButtonOutlet" destination="216-Sg-yeS" id="DNb-5x-Rmv"/>
+                        <outlet property="speakerButtonOutlet" destination="cLg-fy-dqQ" id="Q9c-SJ-IGh"/>
+                        <outlet property="statusLabel" destination="j9O-Ma-d90" id="CNQ-fR-zFY"/>
+                        <outlet property="userNameLabel" destination="ONX-c6-cdV" id="r0j-qQ-5Ky"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NjO-yl-RT9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5757.6000000000004" y="509.59520239880067"/>
+        </scene>
         <!--Contacts Table View Controller-->
         <scene sceneID="rgm-hf-l1f">
             <objects>
@@ -1186,7 +1323,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UPg-od-ljM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6696.8000000000002" y="509.59520239880067"/>
+            <point key="canvasLocation" x="6569" y="510"/>
         </scene>
         <!--New Group View Controller-->
         <scene sceneID="mDD-va-xOR">
@@ -1357,7 +1494,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="7508" y="509.59520239880067"/>
+            <point key="canvasLocation" x="7342" y="510"/>
         </scene>
         <!--Users Table View Controller-->
         <scene sceneID="XUM-G2-xyI">
@@ -1718,7 +1855,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="8280.7999999999993" y="509.59520239880067"/>
+            <point key="canvasLocation" x="8126" y="510"/>
         </scene>
         <!--Pictures Collection View Controller-->
         <scene sceneID="ZLr-tR-uWU">
@@ -1770,7 +1907,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lzW-jV-wh8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9064.7999999999993" y="509.59520239880067"/>
+            <point key="canvasLocation" x="8921" y="510"/>
         </scene>
         <!--Settings-->
         <scene sceneID="QJ0-SW-rG4">
@@ -1925,12 +2062,16 @@
         </scene>
     </scenes>
     <resources>
+        <image name="answer" width="250.5" height="250.5"/>
         <image name="avatarPlaceholder" width="101" height="101"/>
         <image name="call" width="30" height="30"/>
         <image name="cameraIcon" width="80" height="80"/>
         <image name="cancel" width="25" height="25"/>
         <image name="chat" width="25" height="25"/>
+        <image name="hangup" width="249.5" height="249.5"/>
         <image name="message" width="30" height="30"/>
+        <image name="mute" width="250.5" height="250.5"/>
         <image name="settings" width="25" height="25"/>
+        <image name="speaker" width="250" height="250"/>
     </resources>
 </document>

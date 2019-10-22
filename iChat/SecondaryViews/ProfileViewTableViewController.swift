@@ -23,6 +23,8 @@ class ProfileViewTableViewController: UITableViewController {
     
     var user: FUser?
     
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,7 +40,7 @@ class ProfileViewTableViewController: UITableViewController {
     // MARK: - IBActions
 
     @IBAction func callButtonPressed(_ sender: Any) {
-        // call user
+        callUser()
         
         let currentUser = FUser.currentUser()!
         let call = CallClass(_callerId: currentUser.objectId, _withUserId: user!.objectId, _callFullName: currentUser.fullname, _withUserFullName: user!.fullname)
@@ -157,5 +159,20 @@ class ProfileViewTableViewController: UITableViewController {
         else {
             blockButtonOutlet.setTitle("Block User", for: .normal)
         }
+    }
+    
+    // MARK: - Call user
+    
+    func callClient() -> SINCallClient {
+        return appDelegate._client.call()
+    }
+    
+    func callUser() {
+        let userToCall = user!.objectId
+        let call = callClient().callUser(withId: userToCall)
+        let callVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CallVC") as! CallViewController
+        
+        callVC._call = call
+        self.present(callVC, animated: true, completion: nil)
     }
 }

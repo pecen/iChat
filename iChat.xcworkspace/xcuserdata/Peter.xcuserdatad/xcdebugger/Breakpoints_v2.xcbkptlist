@@ -446,8 +446,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "63"
             endingLineNumber = "63"
-            landmarkName = "AppDelegate"
-            landmarkType = "3">
+            landmarkName = "application(_:didFinishLaunchingWithOptions:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -672,6 +672,118 @@
             endingLineNumber = "119"
             landmarkName = "doneButtonDidPress(_:images:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5396FAD8-4E70-41B9-824B-C41A7F83B4D7"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iChat/Helpers/Badges.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "recentBadgeCount(withBlock:)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D0F16282-860B-49B5-88D3-8F5E09C7B6E4"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iChat/Helpers/Badges.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "setBadges(controller:)"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  uuid = "D0F16282-860B-49B5-88D3-8F5E09C7B6E4 - 39f769a0fd33a61f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "iChat.setBadges(controller: __C.UITabBarController) -&gt; ()"
+                  moduleName = "iChat"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Peter/Desktop/App%20Development/iChat/iChat/Helpers/Badges.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "67">
+               </Location>
+               <Location
+                  uuid = "D0F16282-860B-49B5-88D3-8F5E09C7B6E4 - b888450f8d605d90"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Int) -&gt; () in iChat.setBadges(controller: __C.UITabBarController) -&gt; ()"
+                  moduleName = "iChat"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Peter/Desktop/App%20Development/iChat/iChat/Helpers/Badges.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
+                  offsetFromSymbolStart = "107">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "68DBD515-E509-41C7-B642-D066C10EE392"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iChat/Helpers/Badges.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "recentBadgeCount(withBlock:)"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  uuid = "68DBD515-E509-41C7-B642-D066C10EE392 - 23fe90fdc22c235a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "iChat.recentBadgeCount(withBlock: (Swift.Int) -&gt; ()) -&gt; ()"
+                  moduleName = "iChat"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Peter/Desktop/App%20Development/iChat/iChat/Helpers/Badges.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "36">
+               </Location>
+               <Location
+                  uuid = "68DBD515-E509-41C7-B642-D066C10EE392 - 20dae95a087e29a8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRQuerySnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in iChat.recentBadgeCount(withBlock: (Swift.Int) -&gt; ()) -&gt; ()"
+                  moduleName = "iChat"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Peter/Desktop/App%20Development/iChat/iChat/Helpers/Badges.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "331">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
