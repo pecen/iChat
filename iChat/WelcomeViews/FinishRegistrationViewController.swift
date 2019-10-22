@@ -62,9 +62,12 @@ class FinishRegistrationViewController: UIViewController, ImagePickerDelegate {
                     ProgressHUD.showError(error!.localizedDescription)
                     return
                 }
-                
+
                 self.registerUser()
             }
+            
+            // for phone registration of user
+            //self.registerUser()
         }
         else {
             ProgressHUD.showError("All fields are required!")

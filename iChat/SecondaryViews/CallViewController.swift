@@ -29,8 +29,6 @@ class CallViewController: UIViewController, SINCallDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setBadges(controller: self.tabBarController!)
-
         // Do any additional setup after loading the view.
         _call.delegate = self
         
