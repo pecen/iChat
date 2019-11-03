@@ -135,7 +135,7 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         
         // If the value is set between 1 - 999 the expected result is there, but if I set it to 1000 (as suggested
         // in the course, lesson 64 @4:21) it doesn't work.
-        constraint.priority = UILayoutPriority(rawValue: 999)
+        constraint.priority = UILayoutPriority(rawValue: 1000)
         
         self.inputToolbar.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
         
