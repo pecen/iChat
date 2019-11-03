@@ -500,7 +500,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         self.window?.rootViewController = mainView
     }
     
-
     //MARK: PushNotification functions
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
 
@@ -511,13 +510,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
 
 
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        print("rem not with fetch")
-
         let firebaseAuth = Auth.auth()
+
         if (firebaseAuth.canHandleNotification(userInfo)){
             return
         } else {
-//            self.push.application(application, didReceiveRemoteNotification: userInfo)
+            self.push.application(application, didReceiveRemoteNotification: userInfo)
         }
 
     }

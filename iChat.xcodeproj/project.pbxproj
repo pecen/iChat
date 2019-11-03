@@ -146,6 +146,7 @@
 		D0CDD9AC235F651100AF8BA3 /* PhoneNumberLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberLoginViewController.swift; sourceTree = "<group>"; };
 		D0CDD9AE235F7CC000AF8BA3 /* AudioControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioControllerDelegate.swift; sourceTree = "<group>"; };
 		D0CDD9AF235F7CC000AF8BA3 /* SINCallKitProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SINCallKitProvider.swift; sourceTree = "<group>"; };
+		D0CE07EB236F5E720082A8F9 /* OneSignalNotificationServiceExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OneSignalNotificationServiceExtension.entitlements; sourceTree = "<group>"; };
 		D0E490D52354D8B3009EA7BE /* ImagePicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ImagePicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0EF23F22343AFD500D20F4C /* PhotoMediaItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoMediaItem.swift; sourceTree = "<group>"; };
 		D0F4994623392A22006E15A9 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
@@ -248,6 +249,7 @@
 		D05B040E2359FD8100F486CB /* OneSignalNotificationServiceExtension */ = {
 			isa = PBXGroup;
 			children = (
+				D0CE07EB236F5E720082A8F9 /* OneSignalNotificationServiceExtension.entitlements */,
 				D05B040F2359FD8100F486CB /* NotificationService.swift */,
 				D05B04112359FD8100F486CB /* Info.plist */,
 			);
@@ -621,6 +623,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 428FD20A81A5472F7B968CAF /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = OneSignalNotificationServiceExtension/OneSignalNotificationServiceExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8LQCVK238Y;
 				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
@@ -642,6 +645,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2199C5FB07FCD6A661495B9E /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = OneSignalNotificationServiceExtension/OneSignalNotificationServiceExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8LQCVK238Y;
 				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
