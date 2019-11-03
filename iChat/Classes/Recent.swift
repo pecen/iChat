@@ -117,9 +117,7 @@ func updateRecents(chatRoomId: String, lastMessage: String) {
             for recent in snapshot.documents {
                 let currentRecent = recent.data() as NSDictionary
                 
-                if currentRecent[kUSERID] as? String == FUser.currentId() {
-                    updateRecentItem(recent: currentRecent, lastMessage: lastMessage)
-                }
+                updateRecentItem(recent: currentRecent, lastMessage: lastMessage)
             }
         }
     }
