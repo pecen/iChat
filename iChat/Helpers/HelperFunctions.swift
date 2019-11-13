@@ -13,6 +13,10 @@ import FirebaseFirestore
 //MARK: GLOBAL FUNCTIONS
 private let dateFormat = "yyyyMMddHHmmss"
 
+func dismissKeyboard(vc: UIViewController) {
+    vc.view.endEditing(false)
+}
+
 func dateFormatter() -> DateFormatter {
     
     let dateFormatter = DateFormatter()

@@ -15,8 +15,12 @@ class OutgoingMessage {
     
     // text message
     
-    init(message: String, senderId: String, senderName: String, date: Date, status: String, type: String) {
-        msgDictionary = NSMutableDictionary(objects: [message, senderId, senderName, dateFormatter().string(from: date), status, type], forKeys: [kMESSAGE as NSCopying, kSENDERID as NSCopying, kSENDERNAME as NSCopying, kDATE as NSCopying, kSTATUS as NSCopying, kTYPE as NSCopying])
+//    init(message: String, senderId: String, senderName: String, date: Date, status: String, type: String) {
+//        msgDictionary = NSMutableDictionary(objects: [message, senderId, senderName, dateFormatter().string(from: date), status, type], forKeys: [kMESSAGE as NSCopying, kSENDERID as NSCopying, kSENDERNAME as NSCopying, kDATE as NSCopying, kSTATUS as NSCopying, kTYPE as NSCopying])
+//    }
+    
+    init(pushMsg: String, encryptedMsg: String, senderId: String, senderName: String, date: Date, status: String, type: String) {
+        msgDictionary = NSMutableDictionary(objects: [pushMsg, encryptedMsg, senderId, senderName, dateFormatter().string(from: date), status, type], forKeys: [kPUSHMSG as NSCopying, kMESSAGE as NSCopying, kSENDERID as NSCopying, kSENDERNAME as NSCopying, kDATE as NSCopying, kSTATUS as NSCopying, kTYPE as NSCopying])
     }
     
     // picture message
@@ -54,12 +58,24 @@ class OutgoingMessage {
             reference(.Message).document(memberId).collection(chatRoomId).document(msgId).setData(messageDict as! [String : Any])
         }
         
+        let lastMsg = msgDictionary[kMESSAGE] as! String
+        
         // update recent chat
-        updateRecents(chatRoomId: chatRoomId, lastMessage: msgDictionary[kMESSAGE] as! String)
+        updateRecents(chatRoomId: chatRoomId, lastMessage: lastMsg)
+        
+        var pushText : String = ""
+        
+        let type = messageDict[kTYPE] as! String
+        
+        if type == "text" {
+            // if the message is a text message, set the push text to the first 70 characters in the message
+            pushText = "\(messageDict[kPUSHMSG] as! String)"
+        }
+        else {
+            pushText = "[\(messageDict[kTYPE] as! String) message]"
+        }
         
         // send push notifications
-        let pushText = "[\(messageDict[kTYPE] as! String) message]"
-        
         sendPushNotification(memberToPush: membersToPush, message: pushText )
     }
     

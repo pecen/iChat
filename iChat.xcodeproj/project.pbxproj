@@ -52,6 +52,11 @@
 		D0CDD9AD235F651100AF8BA3 /* PhoneNumberLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0CDD9AC235F651100AF8BA3 /* PhoneNumberLoginViewController.swift */; };
 		D0CDD9B0235F7CC000AF8BA3 /* AudioControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0CDD9AE235F7CC000AF8BA3 /* AudioControllerDelegate.swift */; };
 		D0CDD9B1235F7CC000AF8BA3 /* SINCallKitProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0CDD9AF235F7CC000AF8BA3 /* SINCallKitProvider.swift */; };
+		D0DA3156237B0AAA00A0234F /* RegisterAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DA3155237B0AAA00A0234F /* RegisterAccountViewController.swift */; };
+		D0DA3158237B0ABD00A0234F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DA3157237B0ABD00A0234F /* LoginViewController.swift */; };
+		D0DA315B237B0C4C00A0234F /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DA315A237B0C4C00A0234F /* UIExtensions.swift */; };
+		D0DA315D237B0C9200A0234F /* DesignableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DA315C237B0C9200A0234F /* DesignableButton.swift */; };
+		D0E28410237C728900C30B79 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E2840F237C728900C30B79 /* StringExtensions.swift */; };
 		D0EF23F32343AFD500D20F4C /* PhotoMediaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EF23F22343AFD500D20F4C /* PhotoMediaItem.swift */; };
 		D0F4994723392A22006E15A9 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F4994623392A22006E15A9 /* SettingsTableViewController.swift */; };
 		D0F49949233A2562006E15A9 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F49948233A2562006E15A9 /* UserTableViewCell.swift */; };
@@ -147,6 +152,11 @@
 		D0CDD9AE235F7CC000AF8BA3 /* AudioControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioControllerDelegate.swift; sourceTree = "<group>"; };
 		D0CDD9AF235F7CC000AF8BA3 /* SINCallKitProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SINCallKitProvider.swift; sourceTree = "<group>"; };
 		D0CE07EB236F5E720082A8F9 /* OneSignalNotificationServiceExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OneSignalNotificationServiceExtension.entitlements; sourceTree = "<group>"; };
+		D0DA3155237B0AAA00A0234F /* RegisterAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterAccountViewController.swift; sourceTree = "<group>"; };
+		D0DA3157237B0ABD00A0234F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		D0DA315A237B0C4C00A0234F /* UIExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
+		D0DA315C237B0C9200A0234F /* DesignableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableButton.swift; sourceTree = "<group>"; };
+		D0E2840F237C728900C30B79 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		D0E490D52354D8B3009EA7BE /* ImagePicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ImagePicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0EF23F22343AFD500D20F4C /* PhotoMediaItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoMediaItem.swift; sourceTree = "<group>"; };
 		D0F4994623392A22006E15A9 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
@@ -213,6 +223,8 @@
 			children = (
 				D064126E23328B8A00985C84 /* WelcomeViewController.swift */,
 				D0CDD9AC235F651100AF8BA3 /* PhoneNumberLoginViewController.swift */,
+				D0DA3155237B0AAA00A0234F /* RegisterAccountViewController.swift */,
+				D0DA3157237B0ABD00A0234F /* LoginViewController.swift */,
 				D064127A2333E79D00985C84 /* FinishRegistrationViewController.swift */,
 			);
 			path = WelcomeViews;
@@ -279,6 +291,7 @@
 		D064125B2332788F00985C84 /* iChat */ = {
 			isa = PBXGroup;
 			children = (
+				D0DA3159237B0C2C00A0234F /* Extensions */,
 				D0CDD9AE235F7CC000AF8BA3 /* AudioControllerDelegate.swift */,
 				D0CDD9AF235F7CC000AF8BA3 /* SINCallKitProvider.swift */,
 				D05B04062358CBCD00F486CB /* iChat.entitlements */,
@@ -332,6 +345,16 @@
 				D00469CA2344ED6D00EDE1BA /* AudioViewController.swift */,
 			);
 			path = Classes;
+			sourceTree = "<group>";
+		};
+		D0DA3159237B0C2C00A0234F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D0DA315A237B0C4C00A0234F /* UIExtensions.swift */,
+				D0E2840F237C728900C30B79 /* StringExtensions.swift */,
+				D0DA315C237B0C9200A0234F /* DesignableButton.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		D0F4994A233A2B67006E15A9 /* CustomCells */ = {
@@ -553,15 +576,19 @@
 				D08389A8234238E000D36072 /* IncomingMessages.swift in Sources */,
 				D034C57B233E345600C1CEB5 /* RecentChatTableViewCell.swift in Sources */,
 				D08389A62342257500D36072 /* OutgoingMessages.swift in Sources */,
+				D0DA3158237B0ABD00A0234F /* LoginViewController.swift in Sources */,
 				D07FB6E02350BE0C007DB9D2 /* InviteUserTableViewController.swift in Sources */,
 				D08FF7C1235F45440045756C /* Badges.swift in Sources */,
+				D0DA315D237B0C9200A0234F /* DesignableButton.swift in Sources */,
 				D0F6A485234B92B000EEF528 /* BackgroundCollectionViewController.swift in Sources */,
 				D00469CD23450D8A00EDE1BA /* MapViewController.swift in Sources */,
 				D0965F3C235A21AA00C9D461 /* CallClass.swift in Sources */,
 				D064125D2332788F00985C84 /* AppDelegate.swift in Sources */,
 				D03B43D623460AD500C89027 /* PicturesCollectionViewController.swift in Sources */,
 				D03B43D823460B1E00C89027 /* PicturesCollectionViewCell.swift in Sources */,
+				D0E28410237C728900C30B79 /* StringExtensions.swift in Sources */,
 				D08389AA23427B7300D36072 /* Camera.swift in Sources */,
+				D0DA3156237B0AAA00A0234F /* RegisterAccountViewController.swift in Sources */,
 				D064126F23328B8A00985C84 /* WelcomeViewController.swift in Sources */,
 				D0F6A489234C9FB300EEF528 /* TermsAndConditionsViewController.swift in Sources */,
 				D0CDD9AD235F651100AF8BA3 /* PhoneNumberLoginViewController.swift in Sources */,
@@ -570,6 +597,7 @@
 				D0F4994723392A22006E15A9 /* SettingsTableViewController.swift in Sources */,
 				D0F4994E233A3BAB006E15A9 /* ChatsViewController.swift in Sources */,
 				D0965F3E235B8AEE00C9D461 /* CallTableViewController.swift in Sources */,
+				D0DA315B237B0C4C00A0234F /* UIExtensions.swift in Sources */,
 				D0F6A487234B92C600EEF528 /* BackgroundCollectionViewCell.swift in Sources */,
 				D064127523329AAF00985C84 /* Constants.swift in Sources */,
 				D0F6A494234CF00600EEF528 /* NewGroupViewController.swift in Sources */,

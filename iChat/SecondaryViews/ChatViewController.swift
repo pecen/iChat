@@ -431,7 +431,13 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         if let text = text {
             let encryptedText = Encryption.encryptText(chatRoomId: chatRoomId, message: text)
             
-            outgoingMessage = OutgoingMessage(message: encryptedText, senderId: currentUser.objectId, senderName: currentUser.firstname, date: date, status: kDELIVERED, type: kTEXT)
+            var pushMsg = text
+            
+            if pushMsg.count > 70 {
+                pushMsg = pushMsg.trunc(length: 67)
+            }
+            
+            outgoingMessage = OutgoingMessage(pushMsg: pushMsg, encryptedMsg: encryptedText, senderId: currentUser.objectId, senderName: currentUser.firstname, date: date, status: kDELIVERED, type: kTEXT)
         }
         
         // picture message

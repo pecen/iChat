@@ -15,7 +15,7 @@ func sendPushNotification(memberToPush: [String], message: String) {
     getMembersToPush(members: updatedMembers) { (userPushIds) in
         let currentUser = FUser.currentUser()!
         
-        OneSignal.postNotification(["contents" : ["en" : "\(currentUser.firstname) \n(message)"], "ios_badgeType" : "Increase", "ios_badgeCount" : "1", "include_player_ids" : userPushIds])
+        OneSignal.postNotification(["headings" : ["en" : "\(currentUser.firstname)"], "contents" : ["en" : "\(message)"], "ios_badgeType" : "Increase", "ios_badgeCount" : "1", "include_player_ids" : userPushIds])
     }
 }
 
@@ -40,7 +40,7 @@ func getMembersToPush(members: [String], completion: @escaping (_ usersArray: [S
             guard let snapshot = snapshot else { completion(pushIds); return }
             
             if snapshot.exists {
-                let userDict = snapshot.data() as! NSDictionary
+                let userDict = snapshot.data()! as NSDictionary
                 let fUser = FUser.init(_dictionary: userDict)
                 
                 pushIds.append(fUser.pushId!)
