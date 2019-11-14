@@ -141,8 +141,9 @@ func formatCallTime(date: Date) -> String {
         elapsed = "\(currentDateFormater.string(from: date))"
     } else {
         let currentDateFormater = dateFormatter()
-        currentDateFormater.dateFormat = "dd/MM/YYYY"
-        
+//        currentDateFormater.dateFormat = "dd/MM/YYYY"
+        currentDateFormater.dateFormat = "YYYY-MM-dd"
+
         elapsed = "\(currentDateFormater.string(from: date))"
     }
     

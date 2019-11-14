@@ -77,11 +77,11 @@ class FUser {
         } else {
             createdAt = Date()
         }
-        if let updateded = _dictionary[kUPDATEDAT] {
-            if (updateded as! String).count != 14 {
+        if let updated = _dictionary[kUPDATEDAT] {
+            if (updated as! String).count != 14 {
                 updatedAt = Date()
             } else {
-                updatedAt = dateFormatter().date(from: updateded as! String)!
+                updatedAt = dateFormatter().date(from: updated as! String)!
             }
         } else {
             updatedAt = Date()
@@ -336,7 +336,7 @@ func fetchCurrentUserFromFirestore(userId: String) {
         if snapshot.exists {
             print("updated current users param")
             
-            UserDefaults.standard.setValue(snapshot.data() as! NSDictionary, forKeyPath: kCURRENTUSER)
+            UserDefaults.standard.setValue(snapshot.data()! as NSDictionary, forKeyPath: kCURRENTUSER)
             UserDefaults.standard.synchronize()
             
         }
@@ -389,7 +389,7 @@ func getUsersFromFirestore(withIds: [String], completion: @escaping (_ usersArra
             
             if snapshot.exists {
                 
-                let user = FUser(_dictionary: snapshot.data() as! NSDictionary)
+                let user = FUser(_dictionary: snapshot.data()! as NSDictionary)
                 count += 1
                 
                 //dont add if its current user
@@ -411,18 +411,21 @@ func getUsersFromFirestore(withIds: [String], completion: @escaping (_ usersArra
     }
 }
 
-
 func updateCurrentUserInFirestore(withValues : [String : Any], completion: @escaping (_ error: Error?) -> Void) {
     
     if let dictionary = UserDefaults.standard.object(forKey: kCURRENTUSER) {
         
-        var tempWithValues = withValues
-        
+//        var tempWithValues = withValues
+        let tempWithValues = withValues
         let currentUserId = FUser.currentId()
         
-        let updatedAt = dateFormatter().string(from: Date())
+        // removed the following 2 lines because it wrongly updates the UserDefaults db with the current date
+        // for updatedAt, which means that the local updatedAt value is not the same as the updatedAt in the
+        // Firestore db
         
-        tempWithValues[kUPDATEDAT] = updatedAt
+//        let updatedAt = dateFormatter().string(from: Date())
+
+//        tempWithValues[kUPDATEDAT] = updatedAt
         
         let userObject = (dictionary as! NSDictionary).mutableCopy() as! NSMutableDictionary
         

@@ -17,7 +17,11 @@ class EditProfileTableViewController: UITableViewController, ImagePickerDelegate
     @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var phoneTextField: UITextField!
+    @IBOutlet weak var cityTextField: UITextField!
+    @IBOutlet weak var countryTextField: UITextField!
     @IBOutlet var avatarTapGestureRecognizer: UITapGestureRecognizer!
+    
+    @IBOutlet weak var lastUpdatedLabel: UILabel!
     
     var avatarImage: UIImage?
 
@@ -32,24 +36,30 @@ class EditProfileTableViewController: UITableViewController, ImagePickerDelegate
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 7
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return ""
     }
     
-    // MARK: - IBActiopns
+    // MARK: - IBActions
     @IBAction func saveButtonPressed(_ sender: Any) {
-        if firstNameTextField.text != "" && lastNameTextField.text != "" && emailTextField.text != "" {
+        if !isDirty() {
+            ProgressHUD.showError("Nothing is changed so nothing to save.")
+            return
+        }
+        
+        if firstNameTextField.text != "" && lastNameTextField.text != "" && emailTextField.text != "" && phoneTextField.text != "" {
             ProgressHUD.show("Saving...")
             
             // block the save button
             SaveButtonOutlet.isEnabled = false
             
             let fullName = firstNameTextField.text! + " " + lastNameTextField.text!
+            let updatedAt = dateFormatter().string(from: Date())
             
-            var withValues = [kFIRSTNAME : firstNameTextField.text!, kLASTNAME : lastNameTextField.text!, kFULLNAME : fullName, kEMAIL : emailTextField.text!, kPHONE : phoneTextField.text!]
+            var withValues = [kFIRSTNAME : firstNameTextField.text!, kLASTNAME : lastNameTextField.text!, kFULLNAME : fullName, kEMAIL : emailTextField.text!, kPHONE : phoneTextField.text!, kCITY : cityTextField.text!, kCOUNTRY : countryTextField.text!, kUPDATEDAT : updatedAt]
             
             if avatarImage != nil {
                 let avatarData = avatarImage!.jpegData(compressionQuality: 0.4)!
@@ -67,6 +77,7 @@ class EditProfileTableViewController: UITableViewController, ImagePickerDelegate
                     }
                     
                     self.SaveButtonOutlet.isEnabled = true
+                    self.lastUpdatedLabel.text = formatCallTime(date: FUser.currentUser()!.updatedAt)
                     return
                 }
                 
@@ -88,6 +99,30 @@ class EditProfileTableViewController: UITableViewController, ImagePickerDelegate
         self.present(imagePicker, animated: true, completion: nil)
     }
     
+    // MARK: - IsDirty
+    
+    func isDirty() -> Bool {
+        let currentUser = FUser.currentUser()
+//        var avatarString: String = ""
+//
+//        if avatarImage != nil {
+//            let avatarData = avatarImage!.jpegData(compressionQuality: 0.4)!
+//            avatarString = avatarData.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
+//        }
+        
+        if firstNameTextField.text == currentUser?.firstname
+            && lastNameTextField.text == currentUser?.lastname
+            && emailTextField.text == currentUser?.email
+            && phoneTextField.text == currentUser?.phoneNumber
+            && cityTextField.text == currentUser?.city
+            && countryTextField.text == currentUser?.country {
+            
+            return false
+        }
+        
+        return true
+    }
+    
     // MARK: - SetupUI
     
     func setupUI() {
@@ -99,6 +134,9 @@ class EditProfileTableViewController: UITableViewController, ImagePickerDelegate
         lastNameTextField.text = currentUser.lastname
         emailTextField.text = currentUser.email
         phoneTextField.text = currentUser.phoneNumber
+        cityTextField.text = currentUser.city
+        countryTextField.text = currentUser.country
+        lastUpdatedLabel.text = "Last updated: \(formatCallTime(date: currentUser.updatedAt))"
         
         if currentUser.avatar != "" {
             imageFromData(pictureData: currentUser.avatar) { (avatarImage) in
