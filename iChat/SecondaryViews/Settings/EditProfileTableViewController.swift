@@ -23,6 +23,10 @@ class EditProfileTableViewController: UITableViewController, ImagePickerDelegate
     
     @IBOutlet weak var lastUpdatedLabel: UILabel!
     
+    @IBOutlet weak var currentPwdTextField: UITextField!
+    @IBOutlet weak var newPwdTextField: UITextField!
+    @IBOutlet weak var repeatPwdTextField: UITextField!
+    
     var avatarImage: UIImage?
 
     override func viewDidLoad() {
@@ -34,12 +38,25 @@ class EditProfileTableViewController: UITableViewController, ImagePickerDelegate
     }
 
     // MARK: - Table view data source
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+            return 2
+    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 7
+        switch section {
+        case 0:
+            return 7
+        default:
+            return 4
+        }
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 1 {
+            return "Change Password"
+        }
+        
         return ""
     }
     
@@ -84,6 +101,22 @@ class EditProfileTableViewController: UITableViewController, ImagePickerDelegate
                 ProgressHUD.showSuccess("Saved")
                 self.SaveButtonOutlet.isEnabled = true
                 self.navigationController?.popViewController(animated: true)
+            }
+        }
+        else {
+            ProgressHUD.showError("All fields are required!")
+        }
+    }
+    
+    @IBAction func changePwdButtonPressed(_ sender: Any) {
+        dismissKeyboard(vc: self)
+        
+        if currentPwdTextField.text != "" && newPwdTextField.text != "" && repeatPwdTextField.text != "" {
+            if newPwdTextField.text == repeatPwdTextField.text {
+                changePassword()
+            }
+            else {
+                ProgressHUD.showError("New passwords don't match!")
             }
         }
         else {
@@ -164,5 +197,42 @@ class EditProfileTableViewController: UITableViewController, ImagePickerDelegate
     
     func cancelButtonDidPress(_ imagePicker: ImagePickerController) {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    // MARK: - Change Password
+    
+    func changePassword() {
+        ProgressHUD.show("Changing password...")
+        
+        FUser.validateUserPwd(password: currentPwdTextField.text!) { (error) in
+            if error != nil {
+                //print("Error caught: \(error!.localizedDescription)")
+                ProgressHUD.showError(error?.localizedDescription)
+            }
+            else {
+                FUser.changeUserPwd(password: self.newPwdTextField.text!) { (error) in
+                    if error != nil {
+                        // an error happened
+                        ProgressHUD.showError(error?.localizedDescription)
+                        self.clearPwdTextFields()
+                        
+                        return
+                    }
+                    self.clearPwdTextFields()
+
+                    ProgressHUD.showSuccess("Password changed!")
+                }
+            }
+        }
+
+//        ProgressHUD.dismiss()
+    }
+    
+    // MARK: - Helper functions
+    
+    func clearPwdTextFields() {
+        currentPwdTextField.text = ""
+        newPwdTextField.text = ""
+        repeatPwdTextField.text = ""
     }
 }

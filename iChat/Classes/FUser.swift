@@ -198,6 +198,43 @@ class FUser {
         
     }
     
+    class func validateUserPwd(password: String, completion: @escaping (_ error: Error?) -> Void) {
+        let user = Auth.auth().currentUser
+        
+        // Prompt the user to re-provide their sign-in credentials
+        let credential: AuthCredential = EmailAuthProvider.credential(withEmail: (user?.email!)!, password: password)
+
+        user?.reauthenticate(with: credential, completion: { (result, error) in
+            if let error = error {
+                // an error happened
+                print("Error: \(error.localizedDescription)")
+                
+                completion(error)
+            }
+            else {
+                // user re-authenticated
+                completion(error)
+            }
+        })
+    }
+    
+    class func changeUserPwd(password: String, completion: @escaping (_ error: Error?) -> Void) {
+        let user = Auth.auth().currentUser
+        
+        user?.updatePassword(to: password, completion: { (error) in
+            if let error = error {
+                // an error happened
+                print("Error: \(error.localizedDescription)")
+                
+                completion(error)
+            }
+            else {
+                // user password changed
+                completion(error)
+            }
+        })
+    }
+    
     //MARK: Register functions
     
     class func registerUserWith(email: String, password: String, firstName: String, lastName: String, avatar: String = "", completion: @escaping (_ error: Error?) -> Void ) {

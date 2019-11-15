@@ -40,16 +40,24 @@ class SettingsTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 4
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 1 {
+        switch section {
+        case 0:
+            return 2
+        case 1:
             return 5
+        default:
+            return 2
         }
 
-        return 2
+//        if section == 1 {
+//            return 5
+//        }
+//
+//        return 2
     }
     
     // MARK: - TableViewDelegate

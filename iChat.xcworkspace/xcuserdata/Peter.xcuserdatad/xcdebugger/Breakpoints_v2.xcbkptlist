@@ -668,8 +668,8 @@
             filePath = "iChat/SecondaryViews/Settings/EditProfileTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "150"
-            endingLineNumber = "150"
+            startingLineNumber = "182"
+            endingLineNumber = "182"
             landmarkName = "EditProfileTableViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -1132,8 +1132,8 @@
             filePath = "iChat/SecondaryViews/Settings/EditProfileTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "140"
-            endingLineNumber = "140"
+            startingLineNumber = "172"
+            endingLineNumber = "172"
             landmarkName = "setupUI()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1148,8 +1148,8 @@
             filePath = "iChat/Classes/FUser.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "336"
-            endingLineNumber = "336"
+            startingLineNumber = "373"
+            endingLineNumber = "373"
             landmarkName = "fetchCurrentUserFromFirestore(userId:)"
             landmarkType = "9">
          </BreakpointContent>
@@ -1164,8 +1164,8 @@
             filePath = "iChat/Classes/FUser.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "355"
-            endingLineNumber = "355"
+            startingLineNumber = "392"
+            endingLineNumber = "392"
             landmarkName = "fetchCurrentUserFromFirestore(userId:completion:)"
             landmarkType = "9">
          </BreakpointContent>
@@ -1260,8 +1260,8 @@
             filePath = "iChat/SecondaryViews/Settings/EditProfileTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
             landmarkName = "saveButtonPressed(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1340,8 +1340,8 @@
             filePath = "iChat/Classes/FUser.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "322"
-            endingLineNumber = "322"
+            startingLineNumber = "359"
+            endingLineNumber = "359"
             landmarkName = "saveUserLocally(fUser:)"
             landmarkType = "9">
          </BreakpointContent>
@@ -1388,8 +1388,8 @@
             filePath = "iChat/Classes/FUser.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "443"
-            endingLineNumber = "443"
+            startingLineNumber = "480"
+            endingLineNumber = "480"
             landmarkName = "updateCurrentUserInFirestore(withValues:completion:)"
             landmarkType = "9">
          </BreakpointContent>
@@ -1404,8 +1404,8 @@
             filePath = "iChat/SecondaryViews/Settings/EditProfileTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "158"
-            endingLineNumber = "158"
+            startingLineNumber = "190"
+            endingLineNumber = "190"
             landmarkName = "doneButtonDidPress(_:images:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1420,8 +1420,8 @@
             filePath = "iChat/SecondaryViews/Settings/EditProfileTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
             landmarkName = "avatarTap(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1436,8 +1436,8 @@
             filePath = "iChat/SecondaryViews/Settings/EditProfileTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "153"
-            endingLineNumber = "153"
+            startingLineNumber = "185"
+            endingLineNumber = "185"
             landmarkName = "wrapperDidPress(_:images:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1452,8 +1452,8 @@
             filePath = "iChat/SecondaryViews/Settings/EditProfileTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "154"
-            endingLineNumber = "154"
+            startingLineNumber = "186"
+            endingLineNumber = "186"
             landmarkName = "wrapperDidPress(_:images:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1468,9 +1468,265 @@
             filePath = "iChat/SecondaryViews/Settings/EditProfileTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
+            startingLineNumber = "141"
+            endingLineNumber = "141"
             landmarkName = "isDirty()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6BC54808-3259-4C76-A01F-F0BB939C157F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iChat/Classes/FUser.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "205"
+            endingLineNumber = "205"
+            landmarkName = "validateUserPwd(password:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "6BC54808-3259-4C76-A01F-F0BB939C157F - e5d1faa1e80773ab"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static iChat.FUser.validateUserPwd(password: Swift.String, completion: (Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "iChat"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Peter/Desktop/App%20Development/iChat/iChat/Classes/FUser.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "205"
+                  endingLineNumber = "205"
+                  offsetFromSymbolStart = "259">
+               </Location>
+               <Location
+                  uuid = "6BC54808-3259-4C76-A01F-F0BB939C157F - e5d1faa1e80773ab"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static iChat.FUser.validateUserPwd(password: Swift.String, completion: (Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "iChat"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Peter/Desktop/App%20Development/iChat/iChat/Classes/FUser.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "205"
+                  endingLineNumber = "205"
+                  offsetFromSymbolStart = "1362">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "84EB4295-A973-4597-98EE-15E26513FE8C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iChat/Classes/FUser.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "224"
+            endingLineNumber = "224"
+            landmarkName = "changeUserPwd(password:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "84EB4295-A973-4597-98EE-15E26513FE8C - e4fab77040627a90"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static iChat.FUser.changeUserPwd(password: Swift.String, completion: (Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "iChat"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Peter/Desktop/App%20Development/iChat/iChat/Classes/FUser.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "224"
+                  endingLineNumber = "224"
+                  offsetFromSymbolStart = "266">
+               </Location>
+               <Location
+                  uuid = "84EB4295-A973-4597-98EE-15E26513FE8C - b2fced431a951e75"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in static iChat.FUser.changeUserPwd(password: Swift.String, completion: (Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "iChat"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Peter/Desktop/App%20Development/iChat/iChat/Classes/FUser.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "225"
+                  endingLineNumber = "225"
+                  offsetFromSymbolStart = "169">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "32D6DB8E-DD63-4895-BD6E-BA875A752443"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iChat/SecondaryViews/Settings/EditProfileTableViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "207"
+            endingLineNumber = "207"
+            landmarkName = "changePassword()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "32D6DB8E-DD63-4895-BD6E-BA875A752443 - fcc813599cfbd467"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "iChat.EditProfileTableViewController.changePassword() -&gt; ()"
+                  moduleName = "iChat"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Peter/Desktop/App%20Development/iChat/iChat/SecondaryViews/Settings/EditProfileTableViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "207"
+                  endingLineNumber = "207"
+                  offsetFromSymbolStart = "150">
+               </Location>
+               <Location
+                  uuid = "32D6DB8E-DD63-4895-BD6E-BA875A752443 - f248a395cb6eb4e7"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in iChat.EditProfileTableViewController.changePassword() -&gt; ()"
+                  moduleName = "iChat"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Peter/Desktop/App%20Development/iChat/iChat/SecondaryViews/Settings/EditProfileTableViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "208"
+                  endingLineNumber = "208"
+                  offsetFromSymbolStart = "87">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C838EAA4-64DC-4CC8-B6FF-B7B25C824CE1"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iChat/SecondaryViews/Settings/EditProfileTableViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "213"
+            endingLineNumber = "213"
+            landmarkName = "changePassword()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "C838EAA4-64DC-4CC8-B6FF-B7B25C824CE1 - f248a395cb6eb4e7"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in iChat.EditProfileTableViewController.changePassword() -&gt; ()"
+                  moduleName = "iChat"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Peter/Desktop/App%20Development/iChat/iChat/SecondaryViews/Settings/EditProfileTableViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "212"
+                  endingLineNumber = "212"
+                  offsetFromSymbolStart = "1029">
+               </Location>
+               <Location
+                  uuid = "C838EAA4-64DC-4CC8-B6FF-B7B25C824CE1 - 7bf889fd0a3db9c3"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in iChat.EditProfileTableViewController.changePassword() -&gt; ()"
+                  moduleName = "iChat"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Peter/Desktop/App%20Development/iChat/iChat/SecondaryViews/Settings/EditProfileTableViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "213"
+                  endingLineNumber = "213"
+                  offsetFromSymbolStart = "44">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BD49771E-79B7-49DC-88B7-87A22E933034"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iChat/SecondaryViews/Settings/EditProfileTableViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "214"
+            endingLineNumber = "214"
+            landmarkName = "changePassword()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F961BB66-AC8D-45B5-8313-73F38F06BC85"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iChat/Classes/FUser.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "208"
+            endingLineNumber = "208"
+            landmarkName = "validateUserPwd(password:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1990B618-CC48-4E8F-9445-B6D01677DED6"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iChat/Classes/FUser.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "225"
+            endingLineNumber = "225"
+            landmarkName = "changeUserPwd(password:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4EC65B12-14A7-4755-95A4-3CD3F90CD851"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iChat/SecondaryViews/Settings/EditProfileTableViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "208"
+            endingLineNumber = "208"
+            landmarkName = "changePassword()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
